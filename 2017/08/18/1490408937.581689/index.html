@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Docker 官网为了简化安装流程，提供了一套安装脚本，Ubuntu和Debian系统可以使用这套脚本进行安装 1curl -sSL https:&#x2F;&#x2F;get.docker.com&#x2F; | sh   执行这个命令后，脚本就会自动的将一切准备工作做好，并把Docker install 系统中；不过在国内咱们要考虑的问题自然是 墙(翻墙安装); 如果没有翻墙条件的朋友建议使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动脚本安装">
+<meta property="og:url" content="https://pmku.com/2017/08/18/1490408937.581689/index.html">
+<meta property="og:site_name" content="二哥笔记">
+<meta property="og:description" content="Docker 官网为了简化安装流程，提供了一套安装脚本，Ubuntu和Debian系统可以使用这套脚本进行安装 1curl -sSL https:&#x2F;&#x2F;get.docker.com&#x2F; | sh   执行这个命令后，脚本就会自动的将一切准备工作做好，并把Docker install 系统中；不过在国内咱们要考虑的问题自然是 墙(翻墙安装); 如果没有翻墙条件的朋友建议使">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://devon.oss-cn-hangzhou.aliyuncs.com/others/erpo.png">
+<meta property="article:published_time" content="2017-08-17T18:11:20.000Z">
+<meta property="article:modified_time" content="2020-09-03T01:42:57.151Z">
+<meta property="article:author" content="FanJun">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://devon.oss-cn-hangzhou.aliyuncs.com/others/erpo.png"><title>自动脚本安装 | 二哥笔记</title><link ref="canonical" href="https://pmku.com/2017/08/18/1490408937.581689/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">二哥笔记</div><div class="header-banner-info__subtitle">思维、技术、科技、财富</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">自动脚本安装</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-18</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><p> Docker 官网为了简化安装流程，提供了一套安装脚本，Ubuntu和Debian系统可以使用这套脚本进行安装</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https:&#x2F;&#x2F;get.docker.com&#x2F; | sh</span><br></pre></td></tr></table></div></figure>
+
+<p> 执行这个命令后，脚本就会自动的将一切准备工作做好，并把Docker install 系统中；不过在国内咱们要考虑的问题自然是 墙(翻墙安装); 如果没有翻墙条件的朋友建议使用阿里提供的安装脚本</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS http:&#x2F;&#x2F;acs-public-mirror.oss-cn-hangzhou.aliyuncs.com&#x2F;docker-engine&#x2F;internet | sh -</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="手动安装需要的软件包"   >
+          <a href="#手动安装需要的软件包" class="heading-link"><i class="fas fa-link"></i></a>手动安装需要的软件包</h4>
+      <p>从14.04以后开始，一部分的内核模块转移到了可选内核模块包（linux-image-extra-*） ,以减少内核软件包的体积。正常安装系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核模块的一部分，作为推荐的Docker存储驱动，一般建议安装可选内核模块包以使用AUFS。</p>
+<p>我用的Ubunut:16.04 选择如下命令install</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-extra-$(uname -r)linux-image-extra-virtual</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="添加APT镜像源"   >
+          <a href="#添加APT镜像源" class="heading-link"><i class="fas fa-link"></i></a>添加APT镜像源</h4>
+      <p>虽然Ubuntu 系统软件源中有Docker 名为 docker.io 但是这个版本太旧。我们需要Docker官网提供的软件源</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates</span><br></pre></td></tr></table></div></figure>
+<p>为了确认所下载软件包的合法性,需要添加Docker 官网软件源的GPG密钥</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv \</span><br><span class="line">               --keyserver hkp:&#x2F;&#x2F;ha.pool.sks-keyservers.net:80 \</span><br><span class="line">               --recv-keys 58118E89F3A912897C070ADBF76221572C52609D</span><br></pre></td></tr></table></div></figure>
+
+<p>然后我们需要向 source.lost中添加Docker软件源,下列表中列出了不同的APT源.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">替换source.list （将其中的 &lt;REPO&gt; 替换为上表的值）:</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;REPO&gt;&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Precise 12.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-precise main</span><br><span class="line">Trusty 14.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-trusty main</span><br><span class="line">Wily 15.10	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-wily main</span><br><span class="line">Xenial 16.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-xenial main</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="http://devon.oss-cn-hangzhou.aliyuncs.com/others/erpo.png" alt="ERPO"></p>
+<p>添加成功后,更新apt软件包缓存</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="安装Docker"   >
+          <a href="#安装Docker" class="heading-link"><i class="fas fa-link"></i></a>安装Docker</h4>
+      <p>一切准备就绪后就可以安装最新版本的Docker了 ,软件包名称为 docker-engine</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-engine</span><br></pre></td></tr></table></div></figure>
+
+<p>启动引擎</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br><span class="line"></span><br><span class="line">16.04</span><br><span class="line"></span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="建立一个用户组"   >
+          <a href="#建立一个用户组" class="heading-link"><i class="fas fa-link"></i></a>建立一个用户组</h4>
+      <p>默认情况下 docker 命令会使用Unix socket 与 Docker 引擎通讯. 而只有root 用户和docker 组的用户才可以访问Docker引擎的unix socket。 为了安全考虑 一般不会直接使用root用户，所以需使用docker的用户加入docker 用户组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></div></figure>
+
+<p>将当期用户加入docker组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker devon</span><br></pre></td></tr></table></div></figure>
+
+
+
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://pmku.com">FanJun</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://pmku.com/2017/08/18/1490408937.581689/">https://pmku.com/2017/08/18/1490408937.581689/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://pmku.com/tags/Docker/">Docker</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2017/08/22/1490408992.038417/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">如何搭建一个Ghost平台博客</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2017/08/11/1490408832.055190/"><span class="paginator-prev__text">热更新</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">
+          手动安装需要的软件包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0APT%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">
+          添加APT镜像源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker"><span class="toc-number">3.</span> <span class="toc-text">
+          安装Docker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">
+          建立一个用户组</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="类和对象的关系理解：  对象是数据，对象本身不包含 方法。但是对象有一个指针指向一个类，这个类里可以有方法。  类和对象是不可分割的，有对象就必定有一个类和其对应，否则这个对象也就成 了没有亲人的孩子（但有一个特殊情况存在，就是由 标量进行强制类型转换的object,没有一个类和它对应。此时php中一个称为“孤儿”的stdClass类就会收留这个对象。 类的组合与继承 在一份代码清单里，定义了两个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php核心技术与最佳实现">
+<meta property="og:url" content="https://pmku.com/2017/08/25/1490409059.353015/index.html">
+<meta property="og:site_name" content="二哥笔记">
+<meta property="og:description" content="类和对象的关系理解：  对象是数据，对象本身不包含 方法。但是对象有一个指针指向一个类，这个类里可以有方法。  类和对象是不可分割的，有对象就必定有一个类和其对应，否则这个对象也就成 了没有亲人的孩子（但有一个特殊情况存在，就是由 标量进行强制类型转换的object,没有一个类和它对应。此时php中一个称为“孤儿”的stdClass类就会收留这个对象。 类的组合与继承 在一份代码清单里，定义了两个">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-25T11:09:25.000Z">
+<meta property="article:modified_time" content="2020-09-03T01:45:16.482Z">
+<meta property="article:author" content="FanJun">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary"><title>php核心技术与最佳实现 | 二哥笔记</title><link ref="canonical" href="https://pmku.com/2017/08/25/1490409059.353015/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">二哥笔记</div><div class="header-banner-info__subtitle">思维、技术、科技、财富</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">php核心技术与最佳实现</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><p>类和对象的关系理解：</p>
+<blockquote>
+<p>对象是数据，对象本身不包含 方法。但是对象有一个指针指向一个类，这个类里可以有方法。</p>
+</blockquote>
+<p>类和对象是不可分割的，有对象就必定有一个类和其对应，否则这个对象也就成 了没有亲人的孩子（但有一个特殊情况存在，就是由</p>
+<p>标量进行强制类型转换的object,没有一个类和它对应。此时php中一个称为“孤儿”的stdClass类就会收留这个对象。</p>
+<p>类的组合与继承</p>
+<p>在一份代码清单里，定义了两个类，一个是person,一个是family;在family类中创建person类的对象，并把这个对象视为family类的</p>
+<p>一个属性，并调用它的方法处理问题，这种复用方法叫做“组合”，还有一个复用方式，就是继承。</p>
+<blockquote>
+<p>耦合：一个软件结构内不同模块之间互联程度的度量，也就是不同模块之间的依赖关系。</p>
+</blockquote>
+<p>低耦合：指模块与模块之间，尽可能地各个模块独立；模块与模块之间的接口尽量少而简单。</p>
+<p>解耦：要解除模块与模块之间的依赖。</p>
+<p>组合和继承两者有很高的相似度，在两者皆可用的情况下，更倾向于使用组合。为啥呢？</p>
+<p>继承破坏封装性</p>
+<p>鸟类是父类，鸭子继承鸟类，鸭子岂不是会飞了？组合，从语义上来说，要优于继承。</p>
+<p>继承是紧耦的</p>
+<p>子类与父类捆绑在一起。组合仅通过唯一接口和外部进行通信，耦合度低于继承。</p>
+<p>继承扩展复杂</p>
+<blockquote>
+<p>多层继承和子类的增加，将设计大量方法重写。</p>
+</blockquote>
+<p>不恰当地使用继承可能违反现实世界中的逻辑</p>
+<blockquote>
+<p>组合并非没有缺点，在创建对象时，组合需要一一创建局部对象，这一定程度上增加了一些代码。</p>
+</blockquote>
+<p>显然组合增加了代码量，组合还有其他缺点，不过总体来说，是优点大于缺点。</p>
+<p>PHP5对面向对象的特性做了许多增强，其中就有一个SPL(标准PHP库）的尝试。SPL中定义了一些接口，其中最主要的就是</p>
+<blockquote>
+<p>Iterator迭代器接口，通过实现这个接口，就能使对象能够用于foreach结构，从而在使用形式上比较统一。</p>
+</blockquote>
+<blockquote>
+<p>实现Iterator的类，必须实现Iterator接口定义的五个方法current,key,next,rewind,valid</p>
+</blockquote>
+<p>接口是对多重继承的一种变相实现，而在讲继承时，我们提到了用来实现混入氏的Traits,实际上，Traits可以被视为一种加强型的接口。</p>
+<p>Traits和接口很像，Traits是可以被导入的（use语法），且已经实现了的方法列表。</p>
+<p>反射</p>
+<blockquote>
+<p>面向对象编程中对象被赋予了自省的能力，而这个自省的过程就是反射。</p>
+</blockquote>
+<p>反射，直观理解就是根据到达地找到出发地和来源。比方说，我给你一个光秃秃的对象，我可以仅仅通过这个对象就能知道它所属的类，拥有哪些方法。</p>
+<blockquote>
+<p>反射指在PHP运行状态中，扩展分析php程序，导出或提取出关于类、方法、属性、参数等的详细信息，包括注释。这种动态获取信息以及动态调用对象方法的功能称为反射API.</p>
+</blockquote>
+<p>来个实例看看：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class person&#123;</span><br><span class="line"></span><br><span class="line">public $name;</span><br><span class="line"></span><br><span class="line">public $gender;</span><br><span class="line"></span><br><span class="line">public function say()&#123;</span><br><span class="line"></span><br><span class="line">echo $this-&gt;name,&quot;\tis &quot;,$this-&gt;gender,&quot;\r\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __get($name)&#123;</span><br><span class="line"></span><br><span class="line">if(!isset($this-&gt;$name))&#123;</span><br><span class="line"></span><br><span class="line">echo &#39;未设置&#39;;</span><br><span class="line"></span><br><span class="line">$this-&gt;$name&#x3D;&quot;正在为你设置默认值&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return $this-&gt;$name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$student &#x3D; new person();</span><br><span class="line"></span><br><span class="line">$student-&gt;name&#x3D;&#39;Tom&#39;;</span><br><span class="line"></span><br><span class="line">$student-&gt;gender&#x3D;&#39;male&#39;;</span><br><span class="line"></span><br><span class="line">$student-&gt;age&#x3D;24;</span><br></pre></td></tr></table></div></figure>
+
+<p>现在要获取这个student对象的方法和属性列表该怎么做呢？如下代表所示：</p>
+<p>//获取对象属性列表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$reflect &#x3D; new ReflectionObject($student);</span><br><span class="line"></span><br><span class="line">$props &#x3D; $reflect-&gt;getProperties();</span><br><span class="line"></span><br><span class="line">foreach($props as $prop)&#123;</span><br><span class="line"></span><br><span class="line">print $prop-&gt;getName().&quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>//获取对象方法列表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$m &#x3D; $reflect-&gt;getMethods();</span><br><span class="line"></span><br><span class="line">foreach($m as $prop)&#123;</span><br><span class="line"></span><br><span class="line">print $prop-&gt;getName().&quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>也可以不用反射API,使用class函数，返回对象属性的关联数组以及更多信息：</p>
+<p>//返回对象属性的关联数组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_object_vars($student));</span><br></pre></td></tr></table></div></figure>
+
+<p>//类属性</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_class_vars(get_class($student)));</span><br></pre></td></tr></table></div></figure>
+
+<p>//返回由类的方法名组成的数组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_class_methods(get_class($student)));</span><br></pre></td></tr></table></div></figure>
+
+<p>反射API的功能显示更强大，甚至能还原这个类的原型，包括方法的访问权限。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">$obj &#x3D; new ReflectionClass(&#39;person&#39;);</span><br><span class="line"></span><br><span class="line">$className &#x3D; $obj-&gt;getName();</span><br><span class="line"></span><br><span class="line">$Methods &#x3D; $Properties &#x3D; array();</span><br><span class="line"></span><br><span class="line">foreach($obj-&gt;getProperties() as $v)&#123;</span><br><span class="line"></span><br><span class="line">$Properties[$v-&gt;getName()] &#x3D; $v;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foreach($obj-&gt;getMethods() as $v)&#123;</span><br><span class="line"></span><br><span class="line">$Methods[$v-&gt;getName()] &#x3D; $v;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;class &#123;$className&#125;\n &#123; \n&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ksort多用于给关联数组排序</span><br><span class="line"></span><br><span class="line">is_array($Properties) &amp;&amp; ksort($Properties);</span><br><span class="line"></span><br><span class="line">foreach($Properties as $k &#x3D;&gt; $v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">echo &quot;\t&quot;;</span><br><span class="line"></span><br><span class="line">echo $v-&gt;isPublic() ? &#39;public&#39;:&#39;&#39;,$v-&gt;isPrivate()?&#39;private&#39;:&#39;&#39;,</span><br><span class="line"></span><br><span class="line">$v-&gt;isProtected()  ? &#39;protected&#39;:&#39;&#39;,</span><br><span class="line"></span><br><span class="line">$v-&gt;isStatic() ? &#39;static&#39;:&#39;&#39;;</span><br><span class="line"></span><br><span class="line">echo &quot;\t&#123;$k&#125;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">if(is_array($Methods)) ksort($Methods);</span><br><span class="line"></span><br><span class="line">foreach($Methods as $k&#x3D;&gt;$v)&#123;</span><br><span class="line"></span><br><span class="line">echo &quot;\tfunction &#123;$k&#125;()&#123;&#125;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;&#125; \n&quot;;</span><br><span class="line"></span><br><span class="line">输出的结果是什么？</span><br><span class="line"></span><br><span class="line">class person</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public gender</span><br><span class="line"></span><br><span class="line">public name</span><br><span class="line"></span><br><span class="line">function __get()&#123;&#125;</span><br><span class="line"></span><br><span class="line">function __set()&#123;&#125;</span><br><span class="line"></span><br><span class="line">function say()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>反射有什么用？</p>
+<blockquote>
+<p>反射可以用于文档生成。因此可以用它对文件里的类进行扫描，逐个生成描述文档。</p>
+</blockquote>
+<p>既然反射可以探知类的内部结构，那么是不是可以用它做Hook实现插件功能呢？或者是做动态代理呢？</p>
+<p>&lt;?php</p>
+<p>class mysql {</p>
+<p>function connect($db){</p>
+<p>echo “连接到数据库${db[0]} \r\n”;</p>
+<p>}</p>
+<p>}</p>
+<p>class sqlproxy{</p>
+<p>private $target;</p>
+<p>function  __construct($tar){</p>
+<p>$this-&gt;target[] = new $tar();</p>
+<p>}</p>
+<p>function __call($name,$args){</p>
+<p>foreach($this-&gt;target as $obj){</p>
+<p>//$obj是一个对象而不是类，但是这里也可以是ReflectionClass反射API</p>
+<p>$r = new ReflectionClass($obj);</p>
+<p>if($method = $r-&gt;getMethod($name)){</p>
+<p>if($method -&gt;isPublic() &amp;&amp; !$method-&gt;isAbstract()){</p>
+<p>echo “方法前拦截记录Log \r\n”;</p>
+<p>$method-&gt;invoke($obj,$args);</p>
+<p>echo “方法后拦截\r\n”;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>$obj = new sqlproxy(‘mysql’);</p>
+<p>$obj-&gt;connect(‘member’);</p>
+<blockquote>
+<p>这里简单说明一下，真正的操作类是mysql类，但是sqlproxy类实现了根据动态传入参数，代替实际的类执行，并且在方法运行前后进行拦截（这就是TP中before，after方法或者laravel框架中中间件的实现原理），并且动态地改变类中的方法和属性。这就是简单的动态代理。</p>
+</blockquote>
+<p>在平常开发中，用到反射的地方不多：一个是对对象进行调试，另一个是获取类的信息。在MVC和插件开发中，使用反射很常见，但是反射的消耗也大，在可找到替代方案的情况下，就不要滥用。</p>
+<blockquote>
+<p>php有Token函数，可以通过这个机制实现一些反射功能。从简单灵活的角度讲，使用已经提供的反射API是可取的。</p>
+</blockquote>
+<p>很多时候，善用反射能保持代码的优雅和简洁，但反射也会破坏类的封装性，因为反射可以使本不应该暴露的方法或属性暴露了出来，这既是优点也是缺点。</p>
+<p>思考：为什么使用反射，反射存在的必要性是什么？或者说，反射为什么会存在？</p>
+<p>缓存</p>
+<p>缓存，最初在学操作系统的时候，有这方面的知识。这里来个更抽象的。</p>
+<blockquote>
+<p>只要两种介质之间存在传输速率差，速率较高的一方即可作为对应的缓存。自底向上，可以简单认为，计算机系统中每一层的速率相差一个数量级（如CPU的响应速率是内存的10倍，内存则是硬盘的10倍等）的都会使用Cache.</p>
+</blockquote>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://pmku.com">FanJun</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://pmku.com/2017/08/25/1490409059.353015/">https://pmku.com/2017/08/25/1490409059.353015/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://pmku.com/tags/php/">php</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2017/10/02/1490409097.384878/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">数据库基本操作命令（基础）</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2017/08/22/1490408992.038417/"><span class="paginator-prev__text">如何搭建一个Ghost平台博客</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

@@ -415,4 +415,613 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></he
 <p>根据不同的方向的产品经理对技术的要求不一样，比如做2C的产品，知道技术皮毛即可、但是做云计算底层仓库的产品经理，一般都要求是技术、架构师出身。</p>
 <p>一般来讲，懂到什么程度呢？  HTML看一遍、会用HTML写网页；SQL语言学一遍，日常常用的增删改查代码能看懂；计算机程序设计（比如java、php、javascript等）入门懂一点，达到听说过、有印象的水平即可，这方面计算机毕业的同学有优势。</p>
 <p>当然，这些都是有了、懂了会更好，不会也没关系，毕竟产品经理岗位的主要目的不是为了写代码。</p>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/10/02/1490409097.384878/">数据库基本操作命令（基础）</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-10-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>创建一个用户，只许本地登录</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &#39;fanxiao2&#39;@&#39;127.0.0.1&#39; identified by &#39;123456&#39;</span><br></pre></td></tr></table></div></figure>
+<p>分配给用户操作数据库的权限</p>
+<p>为fanxiao2这个用户分权所有权限，这个权限只能用在fanxiao2这个数据库的所有数据表上</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on fanxiao2.* to fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>让权限生效</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></div></figure>
+
+<p>找出在Mysql这个数据里的user这个表里边的user字段里的所有信息</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user form mysql.user</span><br></pre></td></tr></table></div></figure>
+
+<p>查看mysql数据库里边user数据表里边的所有字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">desc mysql.user;</span><br><span class="line"></span><br><span class="line">select user, host, password form mysql.user;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看Mysql数据表里用户的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, select_priv form mysql.user;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看特定数据表里用户的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, db, select_priv form mysql.db;</span><br></pre></td></tr></table></div></figure>
+
+<p>查询fanxiao2 这个用户被授予的所有数据库权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants for fanxiao2@127.0.0.1</span><br></pre></td></tr></table></div></figure>
+
+<p>吊销fanxiao2 这个用户的某些权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke update, delete on fanxiao2.* from fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>执行完命令之后可以查看当前所拥有的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, db, update_priv, delete_priv from mysql.db;</span><br></pre></td></tr></table></div></figure>
+
+<p>为fanxiao2这个用户设置一个新的密码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for fanxiao2@127.0.0.1 &#x3D; password(&#39;toor&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>删除用户</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据</p>
+<p>show databases; 查看数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database fanxiao2;</span><br><span class="line">或者</span><br><span class="line">create database if not exists fanxiao2; </span><br></pre></td></tr></table></div></figure>
+
+<p>这条命令会返回创建数据库是出现的错误<br>删除数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据表</p>
+<p>先创建一个范小二数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>切换到范小二数据库里</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></div></figure>
+<p>创建数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table users(</span><br><span class="line">    username int(11),</span><br><span class="line">    password varchar(255),</span><br><span class="line">);</span><br></pre></td></tr></table></div></figure>
+
+<p>添加数据表中的数据栏</p>
+<p>新添加的数据栏会出现在数据表的最前面</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add id INT(11) first;</span><br></pre></td></tr></table></div></figure>
+
+<p>添加数据栏让它出现在password数据栏的下面</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add username TEXT after password;</span><br></pre></td></tr></table></div></figure>
+
+<p>添加id数据栏为主键</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add PRIMARY KEY (id);</span><br></pre></td></tr></table></div></figure>
+
+<p>修改数据栏(修改数据栏中id为user_id)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users change id user_id INT(11);</span><br></pre></td></tr></table></div></figure>
+
+<p>修改数据表名字</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users rename to fanxiao2user;</span><br></pre></td></tr></table></div></figure>
+
+<p>删除数据栏</p>
+<p>删除fanxiao2user 这个数据表中的username 数据栏</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table fanxia2user drop username;</span><br></pre></td></tr></table></div></figure>
+
+<p>新建一个测试</p>
+<p>重新创建一个数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database xiao2 charset&#x3D;utf8;</span><br></pre></td></tr></table></div></figure>
+
+<p>进入数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use xiao2</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据表并添加字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table users(</span><br><span class="line">    user_id INT(11) unsigned not null auto_increment,</span><br><span class="line">    username VARCHAR(100),</span><br><span class="line">    userpass VARCHAR(255),</span><br><span class="line">    primary key(user_id)</span><br><span class="line">)default charset&#x3D;utf8;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看表字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">describe users;</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据记录</p>
+<p>进入数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use users;</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert init users values(null, &#39;fanxiao2&#39;, &#39;123456&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据表具体的栏</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into users (username, userpass) values (&#39;fanxiao2test&#39;, &#39;12345678&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>查询数据</p>
+<p>查看所有的数据记录</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users;</span><br></pre></td></tr></table></div></figure>
+
+<p>指定查询某个字段数据</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username from users;</span><br></pre></td></tr></table></div></figure>
+
+<p>限制查询条件</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where username &#x3D; &#39;fanxiao2&#39;;</span><br></pre></td></tr></table></div></figure>
+
+<p>查询数据后按照排序显示</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from users order by username desc;(升序排序)</span><br><span class="line">select * from users order by username asc;(降序排序)</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/25/1490409059.353015/">php核心技术与最佳实现</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>类和对象的关系理解：</p>
+<blockquote>
+<p>对象是数据，对象本身不包含 方法。但是对象有一个指针指向一个类，这个类里可以有方法。</p>
+</blockquote>
+<p>类和对象是不可分割的，有对象就必定有一个类和其对应，否则这个对象也就成 了没有亲人的孩子（但有一个特殊情况存在，就是由</p>
+<p>标量进行强制类型转换的object,没有一个类和它对应。此时php中一个称为“孤儿”的stdClass类就会收留这个对象。</p>
+<p>类的组合与继承</p>
+<p>在一份代码清单里，定义了两个类，一个是person,一个是family;在family类中创建person类的对象，并把这个对象视为family类的</p>
+<p>一个属性，并调用它的方法处理问题，这种复用方法叫做“组合”，还有一个复用方式，就是继承。</p>
+<blockquote>
+<p>耦合：一个软件结构内不同模块之间互联程度的度量，也就是不同模块之间的依赖关系。</p>
+</blockquote>
+<p>低耦合：指模块与模块之间，尽可能地各个模块独立；模块与模块之间的接口尽量少而简单。</p>
+<p>解耦：要解除模块与模块之间的依赖。</p>
+<p>组合和继承两者有很高的相似度，在两者皆可用的情况下，更倾向于使用组合。为啥呢？</p>
+<p>继承破坏封装性</p>
+<p>鸟类是父类，鸭子继承鸟类，鸭子岂不是会飞了？组合，从语义上来说，要优于继承。</p>
+<p>继承是紧耦的</p>
+<p>子类与父类捆绑在一起。组合仅通过唯一接口和外部进行通信，耦合度低于继承。</p>
+<p>继承扩展复杂</p>
+<blockquote>
+<p>多层继承和子类的增加，将设计大量方法重写。</p>
+</blockquote>
+<p>不恰当地使用继承可能违反现实世界中的逻辑</p>
+<blockquote>
+<p>组合并非没有缺点，在创建对象时，组合需要一一创建局部对象，这一定程度上增加了一些代码。</p>
+</blockquote>
+<p>显然组合增加了代码量，组合还有其他缺点，不过总体来说，是优点大于缺点。</p>
+<p>PHP5对面向对象的特性做了许多增强，其中就有一个SPL(标准PHP库）的尝试。SPL中定义了一些接口，其中最主要的就是</p>
+<blockquote>
+<p>Iterator迭代器接口，通过实现这个接口，就能使对象能够用于foreach结构，从而在使用形式上比较统一。</p>
+</blockquote>
+<blockquote>
+<p>实现Iterator的类，必须实现Iterator接口定义的五个方法current,key,next,rewind,valid</p>
+</blockquote>
+<p>接口是对多重继承的一种变相实现，而在讲继承时，我们提到了用来实现混入氏的Traits,实际上，Traits可以被视为一种加强型的接口。</p>
+<p>Traits和接口很像，Traits是可以被导入的（use语法），且已经实现了的方法列表。</p>
+<p>反射</p>
+<blockquote>
+<p>面向对象编程中对象被赋予了自省的能力，而这个自省的过程就是反射。</p>
+</blockquote>
+<p>反射，直观理解就是根据到达地找到出发地和来源。比方说，我给你一个光秃秃的对象，我可以仅仅通过这个对象就能知道它所属的类，拥有哪些方法。</p>
+<blockquote>
+<p>反射指在PHP运行状态中，扩展分析php程序，导出或提取出关于类、方法、属性、参数等的详细信息，包括注释。这种动态获取信息以及动态调用对象方法的功能称为反射API.</p>
+</blockquote>
+<p>来个实例看看：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class person&#123;</span><br><span class="line"></span><br><span class="line">public $name;</span><br><span class="line"></span><br><span class="line">public $gender;</span><br><span class="line"></span><br><span class="line">public function say()&#123;</span><br><span class="line"></span><br><span class="line">echo $this-&gt;name,&quot;\tis &quot;,$this-&gt;gender,&quot;\r\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public function __get($name)&#123;</span><br><span class="line"></span><br><span class="line">if(!isset($this-&gt;$name))&#123;</span><br><span class="line"></span><br><span class="line">echo &#39;未设置&#39;;</span><br><span class="line"></span><br><span class="line">$this-&gt;$name&#x3D;&quot;正在为你设置默认值&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return $this-&gt;$name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$student &#x3D; new person();</span><br><span class="line"></span><br><span class="line">$student-&gt;name&#x3D;&#39;Tom&#39;;</span><br><span class="line"></span><br><span class="line">$student-&gt;gender&#x3D;&#39;male&#39;;</span><br><span class="line"></span><br><span class="line">$student-&gt;age&#x3D;24;</span><br></pre></td></tr></table></div></figure>
+
+<p>现在要获取这个student对象的方法和属性列表该怎么做呢？如下代表所示：</p>
+<p>//获取对象属性列表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$reflect &#x3D; new ReflectionObject($student);</span><br><span class="line"></span><br><span class="line">$props &#x3D; $reflect-&gt;getProperties();</span><br><span class="line"></span><br><span class="line">foreach($props as $prop)&#123;</span><br><span class="line"></span><br><span class="line">print $prop-&gt;getName().&quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>//获取对象方法列表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$m &#x3D; $reflect-&gt;getMethods();</span><br><span class="line"></span><br><span class="line">foreach($m as $prop)&#123;</span><br><span class="line"></span><br><span class="line">print $prop-&gt;getName().&quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>也可以不用反射API,使用class函数，返回对象属性的关联数组以及更多信息：</p>
+<p>//返回对象属性的关联数组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_object_vars($student));</span><br></pre></td></tr></table></div></figure>
+
+<p>//类属性</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_class_vars(get_class($student)));</span><br></pre></td></tr></table></div></figure>
+
+<p>//返回由类的方法名组成的数组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(get_class_methods(get_class($student)));</span><br></pre></td></tr></table></div></figure>
+
+<p>反射API的功能显示更强大，甚至能还原这个类的原型，包括方法的访问权限。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">$obj &#x3D; new ReflectionClass(&#39;person&#39;);</span><br><span class="line"></span><br><span class="line">$className &#x3D; $obj-&gt;getName();</span><br><span class="line"></span><br><span class="line">$Methods &#x3D; $Properties &#x3D; array();</span><br><span class="line"></span><br><span class="line">foreach($obj-&gt;getProperties() as $v)&#123;</span><br><span class="line"></span><br><span class="line">$Properties[$v-&gt;getName()] &#x3D; $v;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foreach($obj-&gt;getMethods() as $v)&#123;</span><br><span class="line"></span><br><span class="line">$Methods[$v-&gt;getName()] &#x3D; $v;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;class &#123;$className&#125;\n &#123; \n&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ksort多用于给关联数组排序</span><br><span class="line"></span><br><span class="line">is_array($Properties) &amp;&amp; ksort($Properties);</span><br><span class="line"></span><br><span class="line">foreach($Properties as $k &#x3D;&gt; $v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">echo &quot;\t&quot;;</span><br><span class="line"></span><br><span class="line">echo $v-&gt;isPublic() ? &#39;public&#39;:&#39;&#39;,$v-&gt;isPrivate()?&#39;private&#39;:&#39;&#39;,</span><br><span class="line"></span><br><span class="line">$v-&gt;isProtected()  ? &#39;protected&#39;:&#39;&#39;,</span><br><span class="line"></span><br><span class="line">$v-&gt;isStatic() ? &#39;static&#39;:&#39;&#39;;</span><br><span class="line"></span><br><span class="line">echo &quot;\t&#123;$k&#125;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">if(is_array($Methods)) ksort($Methods);</span><br><span class="line"></span><br><span class="line">foreach($Methods as $k&#x3D;&gt;$v)&#123;</span><br><span class="line"></span><br><span class="line">echo &quot;\tfunction &#123;$k&#125;()&#123;&#125;\n&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;&#125; \n&quot;;</span><br><span class="line"></span><br><span class="line">输出的结果是什么？</span><br><span class="line"></span><br><span class="line">class person</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">public gender</span><br><span class="line"></span><br><span class="line">public name</span><br><span class="line"></span><br><span class="line">function __get()&#123;&#125;</span><br><span class="line"></span><br><span class="line">function __set()&#123;&#125;</span><br><span class="line"></span><br><span class="line">function say()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>反射有什么用？</p>
+<blockquote>
+<p>反射可以用于文档生成。因此可以用它对文件里的类进行扫描，逐个生成描述文档。</p>
+</blockquote>
+<p>既然反射可以探知类的内部结构，那么是不是可以用它做Hook实现插件功能呢？或者是做动态代理呢？</p>
+<p>&lt;?php</p>
+<p>class mysql {</p>
+<p>function connect($db){</p>
+<p>echo “连接到数据库${db[0]} \r\n”;</p>
+<p>}</p>
+<p>}</p>
+<p>class sqlproxy{</p>
+<p>private $target;</p>
+<p>function  __construct($tar){</p>
+<p>$this-&gt;target[] = new $tar();</p>
+<p>}</p>
+<p>function __call($name,$args){</p>
+<p>foreach($this-&gt;target as $obj){</p>
+<p>//$obj是一个对象而不是类，但是这里也可以是ReflectionClass反射API</p>
+<p>$r = new ReflectionClass($obj);</p>
+<p>if($method = $r-&gt;getMethod($name)){</p>
+<p>if($method -&gt;isPublic() &amp;&amp; !$method-&gt;isAbstract()){</p>
+<p>echo “方法前拦截记录Log \r\n”;</p>
+<p>$method-&gt;invoke($obj,$args);</p>
+<p>echo “方法后拦截\r\n”;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>$obj = new sqlproxy(‘mysql’);</p>
+<p>$obj-&gt;connect(‘member’);</p>
+<blockquote>
+<p>这里简单说明一下，真正的操作类是mysql类，但是sqlproxy类实现了根据动态传入参数，代替实际的类执行，并且在方法运行前后进行拦截（这就是TP中before，after方法或者laravel框架中中间件的实现原理），并且动态地改变类中的方法和属性。这就是简单的动态代理。</p>
+</blockquote>
+<p>在平常开发中，用到反射的地方不多：一个是对对象进行调试，另一个是获取类的信息。在MVC和插件开发中，使用反射很常见，但是反射的消耗也大，在可找到替代方案的情况下，就不要滥用。</p>
+<blockquote>
+<p>php有Token函数，可以通过这个机制实现一些反射功能。从简单灵活的角度讲，使用已经提供的反射API是可取的。</p>
+</blockquote>
+<p>很多时候，善用反射能保持代码的优雅和简洁，但反射也会破坏类的封装性，因为反射可以使本不应该暴露的方法或属性暴露了出来，这既是优点也是缺点。</p>
+<p>思考：为什么使用反射，反射存在的必要性是什么？或者说，反射为什么会存在？</p>
+<p>缓存</p>
+<p>缓存，最初在学操作系统的时候，有这方面的知识。这里来个更抽象的。</p>
+<blockquote>
+<p>只要两种介质之间存在传输速率差，速率较高的一方即可作为对应的缓存。自底向上，可以简单认为，计算机系统中每一层的速率相差一个数量级（如CPU的响应速率是内存的10倍，内存则是硬盘的10倍等）的都会使用Cache.</p>
+</blockquote>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/22/1490408992.038417/">如何搭建一个Ghost平台博客</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h4 id="用的是一键安装脚本"   >
+          <a href="#用的是一键安装脚本" class="heading-link"><i class="fas fa-link"></i></a>用的是一键安装脚本</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;7xjooa.dl1.z0.glb.clouddn.com&#x2F;install.sh &amp;&amp; chmod 755 install.sh &amp;&amp; .&#x2F;install.sh</span><br></pre></td></tr></table></div></figure>
+
+<p>在shell终端执行这个脚本，中间会让输入三次，第一次域名，第二次mysql数据库root的密码，第三次mysql数据库ghost的密码。</p>
+<p>安装完成后输入你的域名/ghost设置管理员信息即可（域名记得要解析）。</p>
+<p>我刚好搭了一个自己的个人博客，主机买的是阿里云的，域名在万网直接买的。</p>
+<p>看样子题主还是个一无所知的小白，那刚好我也在这里总结下我自己的搭建Ghost博客的过程吧。</p>
+<p>服务器篇：<br>服务器的选择比较广，关于服务器的选择国内国外的争论在此不提。</p>
+<p>记住一点：国内主机解析域名需备案！</p>
+<p>服务器的系统：Ubuntu14.04 64位。</p>
+<p>域名篇：<br>域名的话和服务器一样，购买选择比较宽泛，建议直接国内万网得了，省事。<br>再买完服务器以后，阿里云的首页就会有“万网”的链接，直接跳转过去购买，淘宝一样的操作，不多讲。</p>
+<p>域名解析：<br>在购买完域名和服务器以后呢，就可以在阿里云服务器控制台进行解析。进入阿里云控制台以后，就可以直接看到，这里不是重点，就不讲了。</p>
+<p>备案篇：<br>阿里云的备案服务还是很好的，和在淘宝购物一般，一切都可以线上完成，无脑，只需要耐心等待审批过程。<br>备案服务也在控制台里可以看见。</p>
+<p>工具篇：<br>有了以上这些东西，为了方便使用阿里云主机，请下载Xshell，Xftp两个工具。<br>这连个工具全部免费，网上使用教程也满天飞，在此不多说。</p>
+<p>————————————————-重点来了———————————————-</p>
+<p>现在已经有了阿里云的主机，解析了服务器，阿里云的主机系统也选择好了（Ubuntu14.04 64位）</p>
+<p>Step1 基础配置：<br>Ghost是依托于node.js的，所以要先搭建node环境。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install -y python-software-properties python g++ make  </span><br><span class="line">sudo add-apt-repository ppa:chris-lea&#x2F;node.js  </span><br><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install nodejs  </span><br></pre></td></tr></table></div></figure>
+<p>这些命令全部执行完毕以后，要确认是否配置成功。在终端输入：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v0.10.36</span><br></pre></td></tr></table></div></figure>
+<p>显示node的版本号，即为安装成功。</p>
+<p>接下来再确认一下npm安装是否成功，终端输入：<br>npm -v<br>同样，输出版本号为安装成功。</p>
+<p>Step2配置Ghost：<br>首先要新建一个工作空间（文件夹）来存放Ghost：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;var&#x2F;www&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<p>下载Ghost：</p>
+<p>进入刚才创建的工作空间<br>cd /var/www/<br>下载Ghost并解压</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;ghost.org&#x2F;zip&#x2F;ghost-latest.zip</span><br><span class="line">sudo unzip -d ghost ghost-latest.zip</span><br></pre></td></tr></table></div></figure>
+
+<p>(解压的时候可能会出错，是因为没有下载解压工具unzip，执行命令下载即可，然后重复解压命令。)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unzip</span><br></pre></td></tr></table></div></figure>
+
+<p>安装Ghost的生产模块：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ghost&#x2F;</span><br><span class="line">sudo npm install --production</span><br></pre></td></tr></table></div></figure>
+
+<p>现在我们已经安装完了，但是需要设置之后，才能启动它。</p>
+<p>Ghost设置：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp config.example.js config.js</span><br></pre></td></tr></table></div></figure>
+
+<p>这句话的意思复制config.example.js 并命名为config.js，我们要对config.js这个文件进行修改：<br>sudo nano config.js</p>
+<p>(这句话是用nano打开config.js，提示没有安装nano的话，输入以下命令安装，然后重复上一条命令：)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nano</span><br></pre></td></tr></table></div></figure>
+
+<p>打开以后，修改以下被标注的区域：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">config &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F; ### Production</span><br><span class="line">    &#x2F;&#x2F; When running Ghost in the wild, use the production environment</span><br><span class="line">    &#x2F;&#x2F; Configure your URL and mail settings here</span><br><span class="line">    production: &#123;</span><br><span class="line">        url: &#39;http:&#x2F;&#x2F;my-ghost-blog.com&#39;,</span><br><span class="line">###将‘  ’内部的内容修改为你的解析后的域名，注意带上http</span><br><span class="line">        mail: &#123;</span><br><span class="line">            &#x2F;&#x2F; Your mail settings</span><br><span class="line">        &#125;,</span><br><span class="line">        database: &#123;</span><br><span class="line">            client: &#39;sqlite3&#39;,</span><br><span class="line">            connection: &#123;</span><br><span class="line">                filename: path.join(__dirname, &#39;&#x2F;content&#x2F;data&#x2F;ghost.db&#39;)</span><br><span class="line">            &#125;,</span><br><span class="line">            debug: false</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        server: &#123;</span><br><span class="line">            &#x2F;&#x2F; Host to be passed to node&#39;s &#96;net.Server#listen()&#96;</span><br><span class="line">            host: &#39;127.0.0.1&#39;,</span><br><span class="line">###将‘127.0.0.1’改为‘0.0.0.0’</span><br><span class="line">            &#x2F;&#x2F; Port to be passed to node&#39;s &#96;net.Server#listen()&#96;, for iisnode s$</span><br><span class="line">            port: &#39;2368&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">(...)</span><br></pre></td></tr></table></div></figure>
+
+<p>然后CTRL + X再输入Y然后敲ENTER退出。</p>
+<p>现在已经配置好了Ghost，输入：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm start --production</span><br></pre></td></tr></table></div></figure>
+
+<p>大概会显示：</p>
+<blockquote>
+<p><span class="exturl"><a class="exturl__link"   href="mailto:&#103;&#104;&#x6f;&#x73;&#x74;&#64;&#48;&#x2e;&#54;&#x2e;&#x34;" >&#103;&#104;&#x6f;&#x73;&#x74;&#64;&#48;&#x2e;&#54;&#x2e;&#x34;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> start /var/www/ghost<br>node index</p>
+</blockquote>
+<p>Migrations: Database initialisation required for version 003<br>Migrations: Creating tables…<br>Migrations: Creating table: posts</p>
+<p>[…]<br>然后现在你就可以让你的Ghost使用2368这个端口：http://你的域名.com:2368就可以看到Ghost本尊。</p>
+<p>CTRL + C可以结束掉正在开启的Ghost</p>
+<p>但是这还不是结束！<br>接下来要让你的Ghost一直处于运行状态。</p>
+<p>Step4 配置服务器程序：<br>在终端执行：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></div></figure>
+
+<p>接下来需要对Nginx进行一些配置：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br><span class="line">sudo rm sites-enabled&#x2F;default</span><br><span class="line">sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost</span><br><span class="line">sudo nano &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>然后把这些代码粘贴进去：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name your_domain.tld;</span><br><span class="line">###修该为你的域名</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_set_header   X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header   Host      $http_host;</span><br><span class="line">        proxy_pass         http:&#x2F;&#x2F;127.0.0.1:2368;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>然后建立一个链接，将你新建的配置告诉Nginx：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>然后重启Nginx：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></div></figure>
+
+<p>接下来创建一个新的用户，并给与他权限：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser --shell &#x2F;bin&#x2F;bash --gecos &#39;Ghost application&#39; ghost</span><br><span class="line">sudo chown -R ghost:ghost &#x2F;var&#x2F;www&#x2F;ghost&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<p>然后用ghost用户使用系统：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>现在我们要开启Ghost：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;var&#x2F;www&#x2F;ghost</span><br><span class="line">npm start --production</span><br></pre></td></tr></table></div></figure>
+
+<p>然后你可以在浏览器输入你的域名来查看你的Ghost博客。</p>
+<p>Step5 保持Ghost的运行：<br>我们得先退出ghost用户：<br>exit<br>接下来安装forever：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g forever</span><br></pre></td></tr></table></div></figure>
+
+<p>然后执行：<br>NODE_ENV=production forever start index.js<br>接下来看一下forever是否挂在了index.js：<br>forever list<br>这个状态的话，你就可以开始你的Ghost之路了！</p>
+<p>结束进程命令：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever index.js</span><br></pre></td></tr></table></div></figure>
+
+
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/18/1490408937.581689/">自动脚本安装</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-18</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt"><p> Docker 官网为了简化安装流程，提供了一套安装脚本，Ubuntu和Debian系统可以使用这套脚本进行安装</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https:&#x2F;&#x2F;get.docker.com&#x2F; | sh</span><br></pre></td></tr></table></div></figure>
+
+<p> 执行这个命令后，脚本就会自动的将一切准备工作做好，并把Docker install 系统中；不过在国内咱们要考虑的问题自然是 墙(翻墙安装); 如果没有翻墙条件的朋友建议使用阿里提供的安装脚本</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS http:&#x2F;&#x2F;acs-public-mirror.oss-cn-hangzhou.aliyuncs.com&#x2F;docker-engine&#x2F;internet | sh -</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="手动安装需要的软件包"   >
+          <a href="#手动安装需要的软件包" class="heading-link"><i class="fas fa-link"></i></a>手动安装需要的软件包</h4>
+      <p>从14.04以后开始，一部分的内核模块转移到了可选内核模块包（linux-image-extra-*） ,以减少内核软件包的体积。正常安装系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核模块的一部分，作为推荐的Docker存储驱动，一般建议安装可选内核模块包以使用AUFS。</p>
+<p>我用的Ubunut:16.04 选择如下命令install</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-extra-$(uname -r)linux-image-extra-virtual</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="添加APT镜像源"   >
+          <a href="#添加APT镜像源" class="heading-link"><i class="fas fa-link"></i></a>添加APT镜像源</h4>
+      <p>虽然Ubuntu 系统软件源中有Docker 名为 docker.io 但是这个版本太旧。我们需要Docker官网提供的软件源</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates</span><br></pre></td></tr></table></div></figure>
+<p>为了确认所下载软件包的合法性,需要添加Docker 官网软件源的GPG密钥</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv \</span><br><span class="line">               --keyserver hkp:&#x2F;&#x2F;ha.pool.sks-keyservers.net:80 \</span><br><span class="line">               --recv-keys 58118E89F3A912897C070ADBF76221572C52609D</span><br></pre></td></tr></table></div></figure>
+
+<p>然后我们需要向 source.lost中添加Docker软件源,下列表中列出了不同的APT源.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">替换source.list （将其中的 &lt;REPO&gt; 替换为上表的值）:</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;REPO&gt;&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Precise 12.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-precise main</span><br><span class="line">Trusty 14.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-trusty main</span><br><span class="line">Wily 15.10	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-wily main</span><br><span class="line">Xenial 16.04 (LTS)	deb https:&#x2F;&#x2F;apt.dockerproject.org&#x2F;repo ubuntu-xenial main</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="http://devon.oss-cn-hangzhou.aliyuncs.com/others/erpo.png" alt="ERPO"></p>
+<p>添加成功后,更新apt软件包缓存</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="安装Docker"   >
+          <a href="#安装Docker" class="heading-link"><i class="fas fa-link"></i></a>安装Docker</h4>
+      <p>一切准备就绪后就可以安装最新版本的Docker了 ,软件包名称为 docker-engine</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-engine</span><br></pre></td></tr></table></div></figure>
+
+<p>启动引擎</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br><span class="line"></span><br><span class="line">16.04</span><br><span class="line"></span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="建立一个用户组"   >
+          <a href="#建立一个用户组" class="heading-link"><i class="fas fa-link"></i></a>建立一个用户组</h4>
+      <p>默认情况下 docker 命令会使用Unix socket 与 Docker 引擎通讯. 而只有root 用户和docker 组的用户才可以访问Docker引擎的unix socket。 为了安全考虑 一般不会直接使用root用户，所以需使用docker的用户加入docker 用户组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></div></figure>
+
+<p>将当期用户加入docker组</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker devon</span><br></pre></td></tr></table></div></figure>
+
+
+
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/11/1490408832.055190/">热更新</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="Docker-Swarm：创建服务器集群"   >
+          <a href="#Docker-Swarm：创建服务器集群" class="heading-link"><i class="fas fa-link"></i></a>Docker Swarm：创建服务器集群</h1>
+      <blockquote>
+<p>Docker Swarm 是创建服务器集群用的工具。把一堆服务器绑到一块儿用，让它们看起来像是一台服务器，通过统一的接口在这些服务器上运行应用。<br>集群里的服务器之间相互知道彼此，它们也知道哪些服务器上运行了什么样的服务，如果访问的服务在服务器上不存在，它会把访问转移到集群里的正确的服务器上去处理。一个服务可以用多个容器来支持，这些容器运行在集群里的不同的服务器上，请求可以均衡的分布给这些容器。当有服务器挂掉以后，在它上面运行的服务会被转移到其它的服务器上运行。<br>Docker Swarm 只需要几行命令就可以为应用创建一个强大的集群，为你的应用提供高可用的服务。</p>
+</blockquote>
+
+        <h4 id="模拟集群环境"   >
+          <a href="#模拟集群环境" class="heading-link"><i class="fas fa-link"></i></a>模拟集群环境</h4>
+      <blockquote>
+<p>如果你已经有了几台服务器，安装 Docker 以后就可以去创建一个服务器集群了，如果你想在本地测试 Docker Swarm 的功能，可以模拟一个集群环境，也就是在本地创建几台 Linux 系统的虚拟机，安装 Docker ，配置集群。下面介绍使用 Vagrant 创建虚拟机的方法。<br>1.安装 Virtualbox：虚拟机软件 2.安装 Vagrant：管理虚拟机用的工具，它可以管理 Virtualbox 虚拟机 3.安装 Vagrant Hostmanager 插件<br>Windows 如果启用了 Hyper-v 以后，就不能再使用 Virtualbox 或者其它的虚拟软件了。<br>Vagrant Hostmanager 是 Vagrant 的一个插件，设置了虚拟机的主机名以后，这个插件可以帮助我们设置虚拟机中的 /etc/hosts 文件，在里面添加正确的主机记录，这样如果创建了多台虚拟机，这些虚拟机之间可以使用虚拟机的主机名来访问到对方，这个插件并不是必须的，不过它很有用，它也可以设置本地主机上的 hosts 文件，这样你在本地主机上也可以直接使用虚拟机的主机名来访问到它。</p>
+</blockquote>
+
+        <h4 id="创建项目目录"   >
+          <a href="#创建项目目录" class="heading-link"><i class="fas fa-link"></i></a>创建项目目录</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;Users&#x2F;devon&#x2F;docker&#x2F;</span><br><span class="line">mkdir docker-swarm</span><br><span class="line">cd docker-swarm</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="初始化项目，使用-centos-7-这个-box"   >
+          <a href="#初始化项目，使用-centos-7-这个-box" class="heading-link"><i class="fas fa-link"></i></a>初始化项目，使用 centos/7 这个 box</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init centos&#x2F;7</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="用编辑器打开项目目录"   >
+          <a href="#用编辑器打开项目目录" class="heading-link"><i class="fas fa-link"></i></a>用编辑器打开项目目录</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">atom .&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>编辑一下项目根目录下的 Vagrantfile，替换成下面的代码，它可以创建三台虚拟机，test1，test2，test3。</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(2) do |config|</span><br><span class="line"></span><br><span class="line">  config.vm.box &#x3D; &quot;centos&#x2F;7&quot;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="请安装-vagrant-hostmanager-插件"   >
+          <a href="#请安装-vagrant-hostmanager-插件" class="heading-link"><i class="fas fa-link"></i></a>请安装 vagrant-hostmanager 插件</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  # https:&#x2F;&#x2F;github.com&#x2F;devopsgroup-io&#x2F;vagrant-hostmanager</span><br><span class="line">  config.hostmanager.enabled &#x3D; true</span><br><span class="line">  config.hostmanager.manage_host &#x3D; true</span><br><span class="line">  config.hostmanager.manage_guest &#x3D; true</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test1&quot; do |test1|</span><br><span class="line">    node1.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.11&quot;</span><br><span class="line">    node1.vm.hostname&#x3D;&quot;test1&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test2&quot; do |test2|</span><br><span class="line">    node2.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.12&quot;</span><br><span class="line">    node2.vm.hostname&#x3D;&quot;test2&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test3&quot; do |test3|</span><br><span class="line">    node3.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.13&quot;</span><br><span class="line">    node3.vm.hostname&#x3D;&quot;test3&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="启动虚拟机"   >
+          <a href="#启动虚拟机" class="heading-link"><i class="fas fa-link"></i></a>启动虚拟机</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="安装-Docker"   >
+          <a href="#安装-Docker" class="heading-link"><i class="fas fa-link"></i></a>安装 Docker</h4>
+      <p>虚拟机启动以后，登录到这些虚拟机，然后在上面安装 Docker：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;test.docker.com&#x2F; | sh</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="创建集群"   >
+          <a href="#创建集群" class="heading-link"><i class="fas fa-link"></i></a>创建集群</h4>
+      <blockquote>
+<p>集群里的服务器有两种身份，一个是 manager （管理员），一种是 worker（工人），在管理员服务器上可以创建服务，扩展服务，更新服务，管理员服务器本身也可以运行服务。先去初始化一个集群服务器，比如我想在 test1 这台服务器上初始化一下，先登录到这台服务器。</p>
+</blockquote>
+
+        <h4 id="登录到-test1-服务器"   >
+          <a href="#登录到-test1-服务器" class="heading-link"><i class="fas fa-link"></i></a>登录到 test1 服务器</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test1</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="初始化-Swarm-集群"   >
+          <a href="#初始化-Swarm-集群" class="heading-link"><i class="fas fa-link"></i></a>初始化 Swarm 集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init --listen-addr test1:2377</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>这样 test1 默认就会是这个集群里的管理员，现在集群里只有一个节点服务器，可以查看一下：<br>docker node ls<br>在初始化集群的时候用了 –listen-addr，指定了一下这个集群管理员的地址还有端口号，默认地址应该是 0.0.0.0 ，这里我用了一个主机名来表示，test1。列出这个选项是让展示一下你可以自由的设置服务器的监听地址与端口号，如果使用主机名，你要保证集群里的其它的服务器可以使用这个主机名访问到这台服务器。<br>加入集群</p>
+</blockquote>
+<p>有了集群以后，你要让其它的服务器加入进来：</p>
+
+        <h4 id="登录到-test2"   >
+          <a href="#登录到-test2" class="heading-link"><i class="fas fa-link"></i></a>登录到 test2</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test2</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="让-test2-加入到集群"   >
+          <a href="#让-test2-加入到集群" class="heading-link"><i class="fas fa-link"></i></a>让 test2 加入到集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join --listen-addr node2:2377 test1:2377</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="登录到-test3"   >
+          <a href="#登录到-test3" class="heading-link"><i class="fas fa-link"></i></a>登录到 test3</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test3</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="让-test3-加入到集群"   >
+          <a href="#让-test3-加入到集群" class="heading-link"><i class="fas fa-link"></i></a>让 test3 加入到集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join --listen-addr test3:2377 test1:2377</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>现在集群里一共有三台服务器了，在集群的 manager 里面可以查看一下服务器的列表：<br>docker node ls<br>让服务器加入集群的时候，也用到了 –listen-addr 选项，设置了这台服务器监听的地址与端口，其它的服务器会使用这个地址与端口跟它进行交流。后面又指定了让这台服务器加入到的那个集群，也就是通知一下集群里的管理员服务器。<br>创建集群网络</p>
+</blockquote>
+<blockquote>
+<p>集群里的服务器使用一种 overlay 类型的网络，我们可以创建一种这样的网络，然后在集群里运行服务的时候可以指定使用这个网络。在集群的<br>manager 上（test1），执行：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver overlay skynet</span><br></pre></td></tr></table></div></figure>
+
+<p>这样会创建一个名字是 skynet 的 overlay 类型的网络。<br>创建服务</p>
+<blockquote>
+<p>在集群的 manger 节点上，可以去创建运行应用的服务，执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service create --name web --network skynet --publish 3000:3000 --replicas 1 devon&#x2F;node</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>上面命令会基于宁皓网的 devon/node 镜像创建一个名字是 web 的服务，使用 skynet 这个名字的网络，发布的端口是 3000 。–replicas 指定了这个服务用一个容器来运行。完成以后，可以打开浏览器，访问一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;test1:3000</span><br><span class="line">http:&#x2F;&#x2F;test2:3000</span><br><span class="line">http:&#x2F;&#x2F;test3:3000</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>虽然 web 这个服务只有一个容器运行，它会在集群里的某台服务器上，很可能是 test1 这个服务器，不管它在哪个服务器上运行，访问集群里的所有的服务器，都可以正常打开服务提供的页面，你应该会在页面上看到一个 hello ，还有运行这个应用的容器的 id 号。<br>扩展服务</p>
+</blockquote>
+<blockquote>
+<p>现在我要用多个容器来运行应用，这些容器会在集群里的不同的服务器上运行。扩展运行服务的容器的数量，在集群的 manager 节点上执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service scale web&#x3D;6</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>上面的命令会用 6 个容器同时运行 web 这个服务，这 6 个容器会分布在不同的服务器上，查看运行服务的任务，执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service tasks web</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>你会看到在哪些服务器上运行了 web 这个服务。在不同的浏览器上再访问一下应用的页面，你会发现，运行应用的容器的 id 号会有变化，也就是用户对应用的请求会被均衡的分布在不同的服务器上。<br>更新服务</p>
+</blockquote>
+<blockquote>
+<p>服务被创建以后，可以更新它，比如服务的端口号，数据卷，网络，镜像，这些东西都可以更新。我要更新一下 web 服务用的镜像，在集群的 manager 上执行：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service update web --image devon&#x2F;node:fanxiao2</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>它会让 web 服务基于新的镜像 devon/node:fanxiao2 去创建，更新完成以后，重新打开浏览器，访问一下应用的页面，页面上显示的内容会有变化。<br>如果发现下面的错误：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init --listen-addr test1:2377 了 提示 docker: &#39;swarm&#39; is not a docker command. See &#39;docker --help&#39;.</span><br></pre></td></tr></table></div></figure>
+<p>这是版本问题导致的，请把docker 升级到 1.12及以上</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/10/1490408777.484703/">热更新</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt"><blockquote>
+<p>首先你应该有一个基于React Native开发的应用，我们把具有package.json的目录叫做你的”应用根目录”。<br>如果你还没有初始化应用，请参阅开始使用React Native。<br>所以我们也假设你已经拥有了开发React Native应用的一切环境，包括Node.js、npm、XCode、Android SDK等等。<br>如果你之前没安装过，你还必须安装Android NDK，并设置环境变量ANDROID_NDK_HOME，指向你的NDK根目录(例如/Users/tdzl2003/Downloads/android-ndk-r10e)。<br>安装</p>
+</blockquote>
+<p>在你的项目根目录下运行以下命令(不要输入开头的美元符号)：</p>
+
+        <h5 id="RN-0-29及以上"   >
+          <a href="#RN-0-29及以上" class="heading-link"><i class="fas fa-link"></i></a>RN 0.29及以上:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli</span><br><span class="line">$ npm install --save react-native-update</span><br><span class="line">$ react-native link react-native-update</span><br><span class="line">npm install -g react-native-update-cli这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+        <h5 id="RN-0-27-0-28"   >
+          <a href="#RN-0-27-0-28" class="heading-link"><i class="fas fa-link"></i></a>RN 0.27-0.28:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli rnpm</span><br><span class="line">$ npm install --save react-native-update@2.x</span><br><span class="line">$ rnpm link react-native-update</span><br><span class="line">npm install -g react-native-update-cli rnpm这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="RN-0-26及以下"   >
+          <a href="#RN-0-26及以下" class="heading-link"><i class="fas fa-link"></i></a>RN 0.26及以下:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli rnpm</span><br><span class="line">$ npm install --save --save-exact react-native-update@1.0.x</span><br><span class="line">$ rnpm link react-native-update</span><br><span class="line">npm install -g react-native-update-cli rnpm这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+<p>  ● 注意 *<br>如果访问极慢或者显示网络失败，请使用淘宝镜像： </p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist --global</span><br></pre></td></tr></table></div></figure>
+
+<p>手动安装<br>如果第一步已成功(iOS工程和安卓工程均能看到依赖),可以跳过此步骤</p>
+
+        <h4 id="iOS"   >
+          <a href="#iOS" class="heading-link"><i class="fas fa-link"></i></a>iOS</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 在XCode中的Project Navigator里,右键点击Libraries ➜ Add Files to [你的工程名]</span><br><span class="line">2. 进入node_modules ➜ react-native-update ➜ ios 并选中RCTHotUpdate.xcodeproj&#96;</span><br><span class="line">3. 在XCode中的project navigator里,选中你的工程,在 Build Phases ➜ Link Binary With Libraries 中添加 libRCTHotUpdate.a</span><br><span class="line">4. Run your project (Cmd+R)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="Android"   >
+          <a href="#Android" class="heading-link"><i class="fas fa-link"></i></a>Android</h4>
+        <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  1. 在android&#x2F;settings.gradle中添加如下代码:  include &#39;:react-native-update&#39; project(&#39;:react-native-update&#39;).projectDir &#x3D; new File(rootProject.projectDir, &#39;..&#x2F;node_modules&#x2F;react-native-update&#x2F;android&#39;)</span><br><span class="line">  2. 在android&#x2F;app&#x2F;build.gradle的 dependencies 部分增加如下代码:  compile project(&#39;:react-native-update&#39;) </span><br><span class="line">  3. 检查你的RN版本,如果是0.29及以上, 打开android&#x2F;app&#x2F;src&#x2F;main&#x2F;java&#x2F;[...]&#x2F;MainApplication.java,否则打开android&#x2F;app&#x2F;src&#x2F;main&#x2F;java&#x2F;[...]&#x2F;MainActivity.java</span><br><span class="line">      ○ 在文件开头增加 import cn.reactnative.modules.update.UpdatePackage;</span><br><span class="line">      ○ 在getPackages() 方法中增加 new UpdatePackage()(注意上一行可能要增加一个逗号)</span><br><span class="line">配置Bundle URL(iOS)</span><br><span class="line">在工程target的Build Phases-&gt;Link Binary with Libraries中加入libz.tbd、libbz2.1.0.tbd</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>在你的AppDelegate.m文件中增加如下代码：<br>// … 其它代码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;RCTHotUpdate.h&quot;</span><br><span class="line"></span><br><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">#if DEBUG</span><br><span class="line">  &#x2F;&#x2F; 原来的jsCodeLocation</span><br><span class="line">  jsCodeLocation &#x3D; [NSURL URLWithString:@&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.ios.bundle?platform&#x3D;ios&amp;dev&#x3D;true&quot;];</span><br><span class="line">#else</span><br><span class="line">  jsCodeLocation&#x3D;[RCTHotUpdate bundleURL];</span><br><span class="line">#endif</span><br><span class="line">  &#x2F;&#x2F; ... 其它代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="配置Bundle-URL-Android"   >
+          <a href="#配置Bundle-URL-Android" class="heading-link"><i class="fas fa-link"></i></a>配置Bundle URL(Android)</h5>
+      <p>0.29及以后版本：在你的MainApplication中增加如下代码：<br>// … 其它代码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import cn.reactnative.modules.update.UpdateContext;</span><br><span class="line">public class MainApplication extends Application implements ReactApplication &#123;</span><br><span class="line"></span><br><span class="line">  private final ReactNativeHost mReactNativeHost &#x3D; new ReactNativeHost(this) &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected String getJSBundleFile() &#123;</span><br><span class="line">        return UpdateContext.getBundleUrl(MainApplication.this);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; ... 其它代码</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">0.28及以前版本：在你的MainActivity中增加如下代码：</span><br><span class="line">&#x2F;&#x2F; ... 其它代码</span><br><span class="line"></span><br><span class="line">import cn.reactnative.modules.update.UpdateContext;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends ReactActivity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected String getJSBundleFile() &#123;</span><br><span class="line">        return UpdateContext.getBundleUrl(this);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; ... 其它代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+        <h5 id="iOS的ATS例外配置"   >
+          <a href="#iOS的ATS例外配置" class="heading-link"><i class="fas fa-link"></i></a>iOS的ATS例外配置</h5>
+      <p>从iOS9开始，苹果要求以白名单的形式在Info.plist中列出外部的非https接口，以督促开发者部署https协议。在我们的服务部署https协议之前，请在Info.plist中添加如下例外（右键点击Info.plist，选择open as - source code）：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;NSAppTransportSecurity&lt;&#x2F;key&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;NSExceptionDomains&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;dict&gt;</span><br><span class="line">        &lt;key&gt;reactnative.cn&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;dict&gt;</span><br><span class="line">            &lt;key&gt;NSIncludesSubdomains&lt;&#x2F;key&gt;</span><br><span class="line">            &lt;true&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;dict&gt;</span><br><span class="line">   &lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;dict&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+<p>登录与创建应用<br>在你的项目根目录下运行以下命令：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pushy login</span><br><span class="line">email: &lt;输入你的注册邮箱&gt;</span><br><span class="line">password: &lt;输入你的密码&gt;</span><br></pre></td></tr></table></div></figure>
+
+<p>这会在项目文件夹下创建一个.update文件，注意不要把这个文件上传到Git等CVS系统上。你可以在.gitignore末尾增加一行.update来忽略这个文件。<br>登录之后可以创建应用。注意iOS平台和安卓平台需要分别创建：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pushy createApp --platform ios</span><br></pre></td></tr></table></div></figure>
+<p>App Name: &lt;输入应用名字&gt;</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pushy createApp --platform android</span><br></pre></td></tr></table></div></figure>
+<p>App Name: &lt;输入应用名字&gt;<br>两次输入的名字可以相同，这没有关系。<br>如果你已经在网页端或者其它地方创建过应用，也可以直接选择应用：<br>$ pushy selectApp –platform ios</p>
+<ol>
+<li>鱼多多(ios)</li>
+<li>招财旺(ios)</li>
+</ol>
+<p>Total 2 ios apps<br>Enter appId: &lt;输入应用前面的编号&gt;<br>选择或者创建过应用后，你将可以在文件夹下看到update.json文件，其内容类似如下形式：<br>{<br>    “ios”: {<br>        “appId”: 1,<br>        “appKey”: “&lt;一串随机字符串&gt;”<br>    },<br>    “android”: {<br>        “appId”: 2,<br>        “appKey”: “&lt;一串随机字符串&gt;”<br>    }<br>}<br>你可以安全的把update.json上传到Git等CVS系统上，与你的团队共享这个文件，它不包含任何敏感信息。当然，他们在使用任何功能之前，都必须首先输入pushy login进行登录。</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/10/1490408789.503871/">Docker常用命令</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h4 id="查看镜像"   >
+          <a href="#查看镜像" class="heading-link"><i class="fas fa-link"></i></a>查看镜像</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">包含 仓库名，标签，镜像ID，创建时间以及所占用的空间</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="此命令回去执行-拉取DockerHub的镜像源"   >
+          <a href="#此命令回去执行-拉取DockerHub的镜像源" class="heading-link"><i class="fas fa-link"></i></a>此命令回去执行 拉取DockerHub的镜像源</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull &lt;名称&gt; &lt;版本&gt; （默认会pull最新版本）</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="运行镜像"   >
+          <a href="#运行镜像" class="heading-link"><i class="fas fa-link"></i></a>运行镜像</h4>
+      <p>docker run 就是运行容器的命令, -it -i:交互式操作, -t终端 进入bash –rm 是指容器退出后随之将其删除</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm ubuntu:14.04 bash</span><br><span class="line">root@9839c757a804:&#x2F;# cat &#x2F;etc&#x2F;os-release </span><br><span class="line">NAME&#x3D;&quot;Ubuntu&quot;</span><br><span class="line">VERSION&#x3D;&quot;14.04.5 LTS, Trusty Tahr&quot;</span><br><span class="line">ID&#x3D;ubuntu</span><br><span class="line">ID_LIKE&#x3D;debian</span><br><span class="line">PRETTY_NAME&#x3D;&quot;Ubuntu 14.04.5 LTS&quot;</span><br><span class="line">VERSION_ID&#x3D;&quot;14.04&quot;</span><br><span class="line">HOME_URL&#x3D;&quot;http:&#x2F;&#x2F;www.ubuntu.com&#x2F;&quot;</span><br><span class="line">SUPPORT_URL&#x3D;&quot;http:&#x2F;&#x2F;help.ubuntu.com&#x2F;&quot;</span><br><span class="line">BUG_REPORT_URL&#x3D;&quot;http:&#x2F;&#x2F;bugs.launchpad.net&#x2F;ubuntu&#x2F;&quot;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="虚悬镜像"   >
+          <a href="#虚悬镜像" class="heading-link"><i class="fas fa-link"></i></a>虚悬镜像</h4>
+      <p>有有时我们会pull下来类似于这样的镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;none&gt;   &lt;none&gt;   00285df0df87    5day ago  342 MB</span><br></pre></td></tr></table></div></figure>
+<p>此镜像其实是有标签存在的，只是随着官网的镜像维护更新后 重新pull时这个镜像被转移到了新的镜像身上，而旧镜像本身的名称被取消，所以显示none 当然  docker build 也会出现同样的现象</p>
+<p>此条命令可以显示这类镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f dangling&#x3D;true</span><br></pre></td></tr></table></div></figure>
+
+<p>我们可以用下面命令删除此类镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -q -f dangling&#x3D;true)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="中间层镜像"   >
+          <a href="#中间层镜像" class="heading-link"><i class="fas fa-link"></i></a>中间层镜像</h4>
+      <p>与虚悬镜像不同，她是其它一些镜像的依赖镜像不可删除，删除的话可能导致一些依赖丢失从而出错。相同的层只会存一遍，所以它们的存在对你来说没有什么影响</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -a </span><br></pre></td></tr></table></div></figure>
+
+<p>我现在想查看我在ubuntu:16.04 这个镜像之后pull的镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker images -f since&#x3D;ubuntu:16.04</span><br><span class="line"></span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">nest_console        latest              04aeff17b50c        3 hours ago         531.4 MB</span><br><span class="line">nest_php            latest              c230b821f887        4 hours ago         504.4 MB</span><br><span class="line">centos              latest              67591570dd29        3 days ago          191.8 MB</span><br></pre></td></tr></table></div></figure>
+
+
+<p>-f 是–filter的简写。 如果想看到某个位置之前的镜像 可以将since换成 before</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f before&#x3D;ubuntu:16.04</span><br></pre></td></tr></table></div></figure>
+
+<p>当然也可以通过LABEL来进行过滤</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f label&#x3D;com.example.version&#x3D;0.1</span><br></pre></td></tr></table></div></figure>
+
+<p>我们先去创建并启动一个容器并监听本地端口8080</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name webnginx -d -p8080:80 nginx</span><br></pre></td></tr></table></div></figure>
+
+<p>通过终端方式进入 webnginx 容器</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it webnginx bash</span><br></pre></td></tr></table></div></figure>
+
+<p>使用命令修改nginx的数据内容：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&lt;h1&gt;hello fanxiao2&lt;&#x2F;h1&gt;&quot; &gt;&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br></pre></td></tr></table></div></figure>
+
+<p>我们修改了文件，于是乎也动用了容器的存储层，使用命令可以查看具体改动</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">docker diff webnginx</span><br><span class="line">C &#x2F;root</span><br><span class="line">A &#x2F;root&#x2F;.bash_history</span><br><span class="line">C &#x2F;run</span><br><span class="line">A &#x2F;run&#x2F;nginx.pid</span><br><span class="line">C &#x2F;usr</span><br><span class="line">C &#x2F;usr&#x2F;share</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br><span class="line">C &#x2F;var</span><br><span class="line">C &#x2F;var&#x2F;cache</span><br><span class="line">C &#x2F;var&#x2F;cache&#x2F;nginx</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;client_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;fastcgi_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;proxy_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;scgi_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;uwsgi_temp</span><br></pre></td></tr></table></div></figure></div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

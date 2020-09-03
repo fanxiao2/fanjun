@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="用的是一键安装脚本       1wget http:&#x2F;&#x2F;7xjooa.dl1.z0.glb.clouddn.com&#x2F;install.sh &amp;&amp; chmod 755 install.sh &amp;&amp; .&#x2F;install.sh  在shell终端执行这个脚本，中间会让输入三次，第一次域名，第二次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何搭建一个Ghost平台博客">
+<meta property="og:url" content="https://pmku.com/2017/08/22/1490408992.038417/index.html">
+<meta property="og:site_name" content="二哥笔记">
+<meta property="og:description" content="用的是一键安装脚本       1wget http:&#x2F;&#x2F;7xjooa.dl1.z0.glb.clouddn.com&#x2F;install.sh &amp;&amp; chmod 755 install.sh &amp;&amp; .&#x2F;install.sh  在shell终端执行这个脚本，中间会让输入三次，第一次域名，第二次">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-22T14:10:22.000Z">
+<meta property="article:modified_time" content="2020-09-03T01:44:33.879Z">
+<meta property="article:author" content="FanJun">
+<meta property="article:tag" content="npm">
+<meta name="twitter:card" content="summary"><title>如何搭建一个Ghost平台博客 | 二哥笔记</title><link ref="canonical" href="https://pmku.com/2017/08/22/1490408992.038417/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">二哥笔记</div><div class="header-banner-info__subtitle">思维、技术、科技、财富</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">如何搭建一个Ghost平台博客</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-08-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body">
+        <h4 id="用的是一键安装脚本"   >
+          <a href="#用的是一键安装脚本" class="heading-link"><i class="fas fa-link"></i></a>用的是一键安装脚本</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;7xjooa.dl1.z0.glb.clouddn.com&#x2F;install.sh &amp;&amp; chmod 755 install.sh &amp;&amp; .&#x2F;install.sh</span><br></pre></td></tr></table></div></figure>
+
+<p>在shell终端执行这个脚本，中间会让输入三次，第一次域名，第二次mysql数据库root的密码，第三次mysql数据库ghost的密码。</p>
+<p>安装完成后输入你的域名/ghost设置管理员信息即可（域名记得要解析）。</p>
+<p>我刚好搭了一个自己的个人博客，主机买的是阿里云的，域名在万网直接买的。</p>
+<p>看样子题主还是个一无所知的小白，那刚好我也在这里总结下我自己的搭建Ghost博客的过程吧。</p>
+<p>服务器篇：<br>服务器的选择比较广，关于服务器的选择国内国外的争论在此不提。</p>
+<p>记住一点：国内主机解析域名需备案！</p>
+<p>服务器的系统：Ubuntu14.04 64位。</p>
+<p>域名篇：<br>域名的话和服务器一样，购买选择比较宽泛，建议直接国内万网得了，省事。<br>再买完服务器以后，阿里云的首页就会有“万网”的链接，直接跳转过去购买，淘宝一样的操作，不多讲。</p>
+<p>域名解析：<br>在购买完域名和服务器以后呢，就可以在阿里云服务器控制台进行解析。进入阿里云控制台以后，就可以直接看到，这里不是重点，就不讲了。</p>
+<p>备案篇：<br>阿里云的备案服务还是很好的，和在淘宝购物一般，一切都可以线上完成，无脑，只需要耐心等待审批过程。<br>备案服务也在控制台里可以看见。</p>
+<p>工具篇：<br>有了以上这些东西，为了方便使用阿里云主机，请下载Xshell，Xftp两个工具。<br>这连个工具全部免费，网上使用教程也满天飞，在此不多说。</p>
+<p>————————————————-重点来了———————————————-</p>
+<p>现在已经有了阿里云的主机，解析了服务器，阿里云的主机系统也选择好了（Ubuntu14.04 64位）</p>
+<p>Step1 基础配置：<br>Ghost是依托于node.js的，所以要先搭建node环境。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install -y python-software-properties python g++ make  </span><br><span class="line">sudo add-apt-repository ppa:chris-lea&#x2F;node.js  </span><br><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install nodejs  </span><br></pre></td></tr></table></div></figure>
+<p>这些命令全部执行完毕以后，要确认是否配置成功。在终端输入：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v0.10.36</span><br></pre></td></tr></table></div></figure>
+<p>显示node的版本号，即为安装成功。</p>
+<p>接下来再确认一下npm安装是否成功，终端输入：<br>npm -v<br>同样，输出版本号为安装成功。</p>
+<p>Step2配置Ghost：<br>首先要新建一个工作空间（文件夹）来存放Ghost：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;var&#x2F;www&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<p>下载Ghost：</p>
+<p>进入刚才创建的工作空间<br>cd /var/www/<br>下载Ghost并解压</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;ghost.org&#x2F;zip&#x2F;ghost-latest.zip</span><br><span class="line">sudo unzip -d ghost ghost-latest.zip</span><br></pre></td></tr></table></div></figure>
+
+<p>(解压的时候可能会出错，是因为没有下载解压工具unzip，执行命令下载即可，然后重复解压命令。)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unzip</span><br></pre></td></tr></table></div></figure>
+
+<p>安装Ghost的生产模块：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ghost&#x2F;</span><br><span class="line">sudo npm install --production</span><br></pre></td></tr></table></div></figure>
+
+<p>现在我们已经安装完了，但是需要设置之后，才能启动它。</p>
+<p>Ghost设置：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp config.example.js config.js</span><br></pre></td></tr></table></div></figure>
+
+<p>这句话的意思复制config.example.js 并命名为config.js，我们要对config.js这个文件进行修改：<br>sudo nano config.js</p>
+<p>(这句话是用nano打开config.js，提示没有安装nano的话，输入以下命令安装，然后重复上一条命令：)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nano</span><br></pre></td></tr></table></div></figure>
+
+<p>打开以后，修改以下被标注的区域：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">config &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F; ### Production</span><br><span class="line">    &#x2F;&#x2F; When running Ghost in the wild, use the production environment</span><br><span class="line">    &#x2F;&#x2F; Configure your URL and mail settings here</span><br><span class="line">    production: &#123;</span><br><span class="line">        url: &#39;http:&#x2F;&#x2F;my-ghost-blog.com&#39;,</span><br><span class="line">###将‘  ’内部的内容修改为你的解析后的域名，注意带上http</span><br><span class="line">        mail: &#123;</span><br><span class="line">            &#x2F;&#x2F; Your mail settings</span><br><span class="line">        &#125;,</span><br><span class="line">        database: &#123;</span><br><span class="line">            client: &#39;sqlite3&#39;,</span><br><span class="line">            connection: &#123;</span><br><span class="line">                filename: path.join(__dirname, &#39;&#x2F;content&#x2F;data&#x2F;ghost.db&#39;)</span><br><span class="line">            &#125;,</span><br><span class="line">            debug: false</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        server: &#123;</span><br><span class="line">            &#x2F;&#x2F; Host to be passed to node&#39;s &#96;net.Server#listen()&#96;</span><br><span class="line">            host: &#39;127.0.0.1&#39;,</span><br><span class="line">###将‘127.0.0.1’改为‘0.0.0.0’</span><br><span class="line">            &#x2F;&#x2F; Port to be passed to node&#39;s &#96;net.Server#listen()&#96;, for iisnode s$</span><br><span class="line">            port: &#39;2368&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">(...)</span><br></pre></td></tr></table></div></figure>
+
+<p>然后CTRL + X再输入Y然后敲ENTER退出。</p>
+<p>现在已经配置好了Ghost，输入：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm start --production</span><br></pre></td></tr></table></div></figure>
+
+<p>大概会显示：</p>
+<blockquote>
+<p><span class="exturl"><a class="exturl__link"   href="mailto:&#103;&#104;&#x6f;&#x73;&#x74;&#64;&#48;&#x2e;&#54;&#x2e;&#x34;" >&#103;&#104;&#x6f;&#x73;&#x74;&#64;&#48;&#x2e;&#54;&#x2e;&#x34;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> start /var/www/ghost<br>node index</p>
+</blockquote>
+<p>Migrations: Database initialisation required for version 003<br>Migrations: Creating tables…<br>Migrations: Creating table: posts</p>
+<p>[…]<br>然后现在你就可以让你的Ghost使用2368这个端口：http://你的域名.com:2368就可以看到Ghost本尊。</p>
+<p>CTRL + C可以结束掉正在开启的Ghost</p>
+<p>但是这还不是结束！<br>接下来要让你的Ghost一直处于运行状态。</p>
+<p>Step4 配置服务器程序：<br>在终端执行：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></div></figure>
+
+<p>接下来需要对Nginx进行一些配置：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br><span class="line">sudo rm sites-enabled&#x2F;default</span><br><span class="line">sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost</span><br><span class="line">sudo nano &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>然后把这些代码粘贴进去：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name your_domain.tld;</span><br><span class="line">###修该为你的域名</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_set_header   X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header   Host      $http_host;</span><br><span class="line">        proxy_pass         http:&#x2F;&#x2F;127.0.0.1:2368;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>然后建立一个链接，将你新建的配置告诉Nginx：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;ghost &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>然后重启Nginx：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></div></figure>
+
+<p>接下来创建一个新的用户，并给与他权限：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser --shell &#x2F;bin&#x2F;bash --gecos &#39;Ghost application&#39; ghost</span><br><span class="line">sudo chown -R ghost:ghost &#x2F;var&#x2F;www&#x2F;ghost&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<p>然后用ghost用户使用系统：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - ghost</span><br></pre></td></tr></table></div></figure>
+
+<p>现在我们要开启Ghost：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;var&#x2F;www&#x2F;ghost</span><br><span class="line">npm start --production</span><br></pre></td></tr></table></div></figure>
+
+<p>然后你可以在浏览器输入你的域名来查看你的Ghost博客。</p>
+<p>Step5 保持Ghost的运行：<br>我们得先退出ghost用户：<br>exit<br>接下来安装forever：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g forever</span><br></pre></td></tr></table></div></figure>
+
+<p>然后执行：<br>NODE_ENV=production forever start index.js<br>接下来看一下forever是否挂在了index.js：<br>forever list<br>这个状态的话，你就可以开始你的Ghost之路了！</p>
+<p>结束进程命令：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever index.js</span><br></pre></td></tr></table></div></figure>
+
+
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://pmku.com">FanJun</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://pmku.com/2017/08/22/1490408992.038417/">https://pmku.com/2017/08/22/1490408992.038417/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://pmku.com/tags/npm/">npm</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2017/08/25/1490409059.353015/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">php核心技术与最佳实现</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2017/08/18/1490408937.581689/"><span class="paginator-prev__text">自动脚本安装</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E7%9A%84%E6%98%AF%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">
+          用的是一键安装脚本</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

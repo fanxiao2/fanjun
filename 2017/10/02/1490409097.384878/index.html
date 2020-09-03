@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="创建一个用户，只许本地登录 1create user &#39;fanxiao2&#39;@&#39;127.0.0.1&#39; identified by &#39;123456&#39; 分配给用户操作数据库的权限 为fanxiao2这个用户分权所有权限，这个权限只能用在fanxiao2这个数据库的所有数据表上 1grant all privileges on fanxiao2.* to f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库基本操作命令（基础）">
+<meta property="og:url" content="https://pmku.com/2017/10/02/1490409097.384878/index.html">
+<meta property="og:site_name" content="二哥笔记">
+<meta property="og:description" content="创建一个用户，只许本地登录 1create user &#39;fanxiao2&#39;@&#39;127.0.0.1&#39; identified by &#39;123456&#39; 分配给用户操作数据库的权限 为fanxiao2这个用户分权所有权限，这个权限只能用在fanxiao2这个数据库的所有数据表上 1grant all privileges on fanxiao2.* to f">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-02T12:10:21.000Z">
+<meta property="article:modified_time" content="2020-09-03T01:48:37.441Z">
+<meta property="article:author" content="FanJun">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary"><title>数据库基本操作命令（基础） | 二哥笔记</title><link ref="canonical" href="https://pmku.com/2017/10/02/1490409097.384878/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">二哥笔记</div><div class="header-banner-info__subtitle">思维、技术、科技、财富</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">数据库基本操作命令（基础）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2017-10-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-09-03</span></span></div></header><div class="post-body"><p>创建一个用户，只许本地登录</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &#39;fanxiao2&#39;@&#39;127.0.0.1&#39; identified by &#39;123456&#39;</span><br></pre></td></tr></table></div></figure>
+<p>分配给用户操作数据库的权限</p>
+<p>为fanxiao2这个用户分权所有权限，这个权限只能用在fanxiao2这个数据库的所有数据表上</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on fanxiao2.* to fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>让权限生效</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></div></figure>
+
+<p>找出在Mysql这个数据里的user这个表里边的user字段里的所有信息</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user form mysql.user</span><br></pre></td></tr></table></div></figure>
+
+<p>查看mysql数据库里边user数据表里边的所有字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">desc mysql.user;</span><br><span class="line"></span><br><span class="line">select user, host, password form mysql.user;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看Mysql数据表里用户的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, select_priv form mysql.user;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看特定数据表里用户的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, db, select_priv form mysql.db;</span><br></pre></td></tr></table></div></figure>
+
+<p>查询fanxiao2 这个用户被授予的所有数据库权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants for fanxiao2@127.0.0.1</span><br></pre></td></tr></table></div></figure>
+
+<p>吊销fanxiao2 这个用户的某些权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke update, delete on fanxiao2.* from fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>执行完命令之后可以查看当前所拥有的权限</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, db, update_priv, delete_priv from mysql.db;</span><br></pre></td></tr></table></div></figure>
+
+<p>为fanxiao2这个用户设置一个新的密码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for fanxiao2@127.0.0.1 &#x3D; password(&#39;toor&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>删除用户</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user fanxiao2@127.0.0.1;</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据</p>
+<p>show databases; 查看数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database fanxiao2;</span><br><span class="line">或者</span><br><span class="line">create database if not exists fanxiao2; </span><br></pre></td></tr></table></div></figure>
+
+<p>这条命令会返回创建数据库是出现的错误<br>删除数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据表</p>
+<p>先创建一个范小二数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>切换到范小二数据库里</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use fanxiao2;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></div></figure>
+<p>创建数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table users(</span><br><span class="line">    username int(11),</span><br><span class="line">    password varchar(255),</span><br><span class="line">);</span><br></pre></td></tr></table></div></figure>
+
+<p>添加数据表中的数据栏</p>
+<p>新添加的数据栏会出现在数据表的最前面</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add id INT(11) first;</span><br></pre></td></tr></table></div></figure>
+
+<p>添加数据栏让它出现在password数据栏的下面</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add username TEXT after password;</span><br></pre></td></tr></table></div></figure>
+
+<p>添加id数据栏为主键</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users add PRIMARY KEY (id);</span><br></pre></td></tr></table></div></figure>
+
+<p>修改数据栏(修改数据栏中id为user_id)</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users change id user_id INT(11);</span><br></pre></td></tr></table></div></figure>
+
+<p>修改数据表名字</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users rename to fanxiao2user;</span><br></pre></td></tr></table></div></figure>
+
+<p>删除数据栏</p>
+<p>删除fanxiao2user 这个数据表中的username 数据栏</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table fanxia2user drop username;</span><br></pre></td></tr></table></div></figure>
+
+<p>新建一个测试</p>
+<p>重新创建一个数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database xiao2 charset&#x3D;utf8;</span><br></pre></td></tr></table></div></figure>
+
+<p>进入数据库</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use xiao2</span><br></pre></td></tr></table></div></figure>
+
+<p>创建数据表并添加字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table users(</span><br><span class="line">    user_id INT(11) unsigned not null auto_increment,</span><br><span class="line">    username VARCHAR(100),</span><br><span class="line">    userpass VARCHAR(255),</span><br><span class="line">    primary key(user_id)</span><br><span class="line">)default charset&#x3D;utf8;</span><br></pre></td></tr></table></div></figure>
+
+<p>查看表字段</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">describe users;</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据记录</p>
+<p>进入数据表</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use users;</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert init users values(null, &#39;fanxiao2&#39;, &#39;123456&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>插入数据表具体的栏</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into users (username, userpass) values (&#39;fanxiao2test&#39;, &#39;12345678&#39;);</span><br></pre></td></tr></table></div></figure>
+
+<p>查询数据</p>
+<p>查看所有的数据记录</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users;</span><br></pre></td></tr></table></div></figure>
+
+<p>指定查询某个字段数据</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username from users;</span><br></pre></td></tr></table></div></figure>
+
+<p>限制查询条件</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where username &#x3D; &#39;fanxiao2&#39;;</span><br></pre></td></tr></table></div></figure>
+
+<p>查询数据后按照排序显示</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from users order by username desc;(升序排序)</span><br><span class="line">select * from users order by username asc;(降序排序)</span><br></pre></td></tr></table></div></figure>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://pmku.com">FanJun</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://pmku.com/2017/10/02/1490409097.384878/">https://pmku.com/2017/10/02/1490409097.384878/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://pmku.com/tags/MySQL/">MySQL</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2019/11/02/%E6%96%B0%E6%89%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%BB%8F%E5%B8%B8%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%8425%E4%B8%AA%E5%9B%B0%E6%83%91/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">浅谈新手产品经理常遇到的25个困惑问题。</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2017/08/25/1490409059.353015/"><span class="paginator-prev__text">php核心技术与最佳实现</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
