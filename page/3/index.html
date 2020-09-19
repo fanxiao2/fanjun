@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="每个人都应该领悟产品的思维、技术的手艺、科技的创新能力方可积累人生财富！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="二哥笔记">
+<meta property="og:url" content="https://pmku.com/page/3/index.html">
+<meta property="og:site_name" content="二哥笔记">
+<meta property="og:description" content="每个人都应该领悟产品的思维、技术的手艺、科技的创新能力方可积累人生财富！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="FanJun">
+<meta property="article:tag" content="二哥笔记、产品经理、产品思维、编程思维、自学技术、科技创新、财富积累">
+<meta name="twitter:card" content="summary"><title>二哥笔记</title><link ref="canonical" href="https://pmku.com/page/3/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">二哥笔记</div><div class="header-banner-info__subtitle">产品、思维、技术、科技、财富</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/11/1490408832.055190/">热更新</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2017-08-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-03</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">12分</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="Docker-Swarm：创建服务器集群"   >
+          <a href="#Docker-Swarm：创建服务器集群" class="heading-link"><i class="fas fa-link"></i></a>Docker Swarm：创建服务器集群</h1>
+      <blockquote>
+<p>Docker Swarm 是创建服务器集群用的工具。把一堆服务器绑到一块儿用，让它们看起来像是一台服务器，通过统一的接口在这些服务器上运行应用。<br>集群里的服务器之间相互知道彼此，它们也知道哪些服务器上运行了什么样的服务，如果访问的服务在服务器上不存在，它会把访问转移到集群里的正确的服务器上去处理。一个服务可以用多个容器来支持，这些容器运行在集群里的不同的服务器上，请求可以均衡的分布给这些容器。当有服务器挂掉以后，在它上面运行的服务会被转移到其它的服务器上运行。<br>Docker Swarm 只需要几行命令就可以为应用创建一个强大的集群，为你的应用提供高可用的服务。</p>
+</blockquote>
+
+        <h4 id="模拟集群环境"   >
+          <a href="#模拟集群环境" class="heading-link"><i class="fas fa-link"></i></a>模拟集群环境</h4>
+      <blockquote>
+<p>如果你已经有了几台服务器，安装 Docker 以后就可以去创建一个服务器集群了，如果你想在本地测试 Docker Swarm 的功能，可以模拟一个集群环境，也就是在本地创建几台 Linux 系统的虚拟机，安装 Docker ，配置集群。下面介绍使用 Vagrant 创建虚拟机的方法。<br>1.安装 Virtualbox：虚拟机软件 2.安装 Vagrant：管理虚拟机用的工具，它可以管理 Virtualbox 虚拟机 3.安装 Vagrant Hostmanager 插件<br>Windows 如果启用了 Hyper-v 以后，就不能再使用 Virtualbox 或者其它的虚拟软件了。<br>Vagrant Hostmanager 是 Vagrant 的一个插件，设置了虚拟机的主机名以后，这个插件可以帮助我们设置虚拟机中的 /etc/hosts 文件，在里面添加正确的主机记录，这样如果创建了多台虚拟机，这些虚拟机之间可以使用虚拟机的主机名来访问到对方，这个插件并不是必须的，不过它很有用，它也可以设置本地主机上的 hosts 文件，这样你在本地主机上也可以直接使用虚拟机的主机名来访问到它。</p>
+</blockquote>
+
+        <h4 id="创建项目目录"   >
+          <a href="#创建项目目录" class="heading-link"><i class="fas fa-link"></i></a>创建项目目录</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;Users&#x2F;devon&#x2F;docker&#x2F;</span><br><span class="line">mkdir docker-swarm</span><br><span class="line">cd docker-swarm</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="初始化项目，使用-centos-7-这个-box"   >
+          <a href="#初始化项目，使用-centos-7-这个-box" class="heading-link"><i class="fas fa-link"></i></a>初始化项目，使用 centos/7 这个 box</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init centos&#x2F;7</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="用编辑器打开项目目录"   >
+          <a href="#用编辑器打开项目目录" class="heading-link"><i class="fas fa-link"></i></a>用编辑器打开项目目录</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">atom .&#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>编辑一下项目根目录下的 Vagrantfile，替换成下面的代码，它可以创建三台虚拟机，test1，test2，test3。</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(2) do |config|</span><br><span class="line"></span><br><span class="line">  config.vm.box &#x3D; &quot;centos&#x2F;7&quot;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="请安装-vagrant-hostmanager-插件"   >
+          <a href="#请安装-vagrant-hostmanager-插件" class="heading-link"><i class="fas fa-link"></i></a>请安装 vagrant-hostmanager 插件</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  # https:&#x2F;&#x2F;github.com&#x2F;devopsgroup-io&#x2F;vagrant-hostmanager</span><br><span class="line">  config.hostmanager.enabled &#x3D; true</span><br><span class="line">  config.hostmanager.manage_host &#x3D; true</span><br><span class="line">  config.hostmanager.manage_guest &#x3D; true</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test1&quot; do |test1|</span><br><span class="line">    node1.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.11&quot;</span><br><span class="line">    node1.vm.hostname&#x3D;&quot;test1&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test2&quot; do |test2|</span><br><span class="line">    node2.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.12&quot;</span><br><span class="line">    node2.vm.hostname&#x3D;&quot;test2&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  config.vm.define &quot;test3&quot; do |test3|</span><br><span class="line">    node3.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.13&quot;</span><br><span class="line">    node3.vm.hostname&#x3D;&quot;test3&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="启动虚拟机"   >
+          <a href="#启动虚拟机" class="heading-link"><i class="fas fa-link"></i></a>启动虚拟机</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="安装-Docker"   >
+          <a href="#安装-Docker" class="heading-link"><i class="fas fa-link"></i></a>安装 Docker</h4>
+      <p>虚拟机启动以后，登录到这些虚拟机，然后在上面安装 Docker：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;test.docker.com&#x2F; | sh</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="创建集群"   >
+          <a href="#创建集群" class="heading-link"><i class="fas fa-link"></i></a>创建集群</h4>
+      <blockquote>
+<p>集群里的服务器有两种身份，一个是 manager （管理员），一种是 worker（工人），在管理员服务器上可以创建服务，扩展服务，更新服务，管理员服务器本身也可以运行服务。先去初始化一个集群服务器，比如我想在 test1 这台服务器上初始化一下，先登录到这台服务器。</p>
+</blockquote>
+
+        <h4 id="登录到-test1-服务器"   >
+          <a href="#登录到-test1-服务器" class="heading-link"><i class="fas fa-link"></i></a>登录到 test1 服务器</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test1</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="初始化-Swarm-集群"   >
+          <a href="#初始化-Swarm-集群" class="heading-link"><i class="fas fa-link"></i></a>初始化 Swarm 集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init --listen-addr test1:2377</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>这样 test1 默认就会是这个集群里的管理员，现在集群里只有一个节点服务器，可以查看一下：<br>docker node ls<br>在初始化集群的时候用了 –listen-addr，指定了一下这个集群管理员的地址还有端口号，默认地址应该是 0.0.0.0 ，这里我用了一个主机名来表示，test1。列出这个选项是让展示一下你可以自由的设置服务器的监听地址与端口号，如果使用主机名，你要保证集群里的其它的服务器可以使用这个主机名访问到这台服务器。<br>加入集群</p>
+</blockquote>
+<p>有了集群以后，你要让其它的服务器加入进来：</p>
+
+        <h4 id="登录到-test2"   >
+          <a href="#登录到-test2" class="heading-link"><i class="fas fa-link"></i></a>登录到 test2</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test2</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="让-test2-加入到集群"   >
+          <a href="#让-test2-加入到集群" class="heading-link"><i class="fas fa-link"></i></a>让 test2 加入到集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join --listen-addr node2:2377 test1:2377</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="登录到-test3"   >
+          <a href="#登录到-test3" class="heading-link"><i class="fas fa-link"></i></a>登录到 test3</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh test3</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="让-test3-加入到集群"   >
+          <a href="#让-test3-加入到集群" class="heading-link"><i class="fas fa-link"></i></a>让 test3 加入到集群</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm join --listen-addr test3:2377 test1:2377</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>现在集群里一共有三台服务器了，在集群的 manager 里面可以查看一下服务器的列表：<br>docker node ls<br>让服务器加入集群的时候，也用到了 –listen-addr 选项，设置了这台服务器监听的地址与端口，其它的服务器会使用这个地址与端口跟它进行交流。后面又指定了让这台服务器加入到的那个集群，也就是通知一下集群里的管理员服务器。<br>创建集群网络</p>
+</blockquote>
+<blockquote>
+<p>集群里的服务器使用一种 overlay 类型的网络，我们可以创建一种这样的网络，然后在集群里运行服务的时候可以指定使用这个网络。在集群的<br>manager 上（test1），执行：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver overlay skynet</span><br></pre></td></tr></table></div></figure>
+
+<p>这样会创建一个名字是 skynet 的 overlay 类型的网络。<br>创建服务</p>
+<blockquote>
+<p>在集群的 manger 节点上，可以去创建运行应用的服务，执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service create --name web --network skynet --publish 3000:3000 --replicas 1 devon&#x2F;node</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>上面命令会基于宁皓网的 devon/node 镜像创建一个名字是 web 的服务，使用 skynet 这个名字的网络，发布的端口是 3000 。–replicas 指定了这个服务用一个容器来运行。完成以后，可以打开浏览器，访问一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;test1:3000</span><br><span class="line">http:&#x2F;&#x2F;test2:3000</span><br><span class="line">http:&#x2F;&#x2F;test3:3000</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>虽然 web 这个服务只有一个容器运行，它会在集群里的某台服务器上，很可能是 test1 这个服务器，不管它在哪个服务器上运行，访问集群里的所有的服务器，都可以正常打开服务提供的页面，你应该会在页面上看到一个 hello ，还有运行这个应用的容器的 id 号。<br>扩展服务</p>
+</blockquote>
+<blockquote>
+<p>现在我要用多个容器来运行应用，这些容器会在集群里的不同的服务器上运行。扩展运行服务的容器的数量，在集群的 manager 节点上执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service scale web&#x3D;6</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>上面的命令会用 6 个容器同时运行 web 这个服务，这 6 个容器会分布在不同的服务器上，查看运行服务的任务，执行一下：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service tasks web</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>你会看到在哪些服务器上运行了 web 这个服务。在不同的浏览器上再访问一下应用的页面，你会发现，运行应用的容器的 id 号会有变化，也就是用户对应用的请求会被均衡的分布在不同的服务器上。<br>更新服务</p>
+</blockquote>
+<blockquote>
+<p>服务被创建以后，可以更新它，比如服务的端口号，数据卷，网络，镜像，这些东西都可以更新。我要更新一下 web 服务用的镜像，在集群的 manager 上执行：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service update web --image devon&#x2F;node:fanxiao2</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>它会让 web 服务基于新的镜像 devon/node:fanxiao2 去创建，更新完成以后，重新打开浏览器，访问一下应用的页面，页面上显示的内容会有变化。<br>如果发现下面的错误：</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init --listen-addr test1:2377 了 提示 docker: &#39;swarm&#39; is not a docker command. See &#39;docker --help&#39;.</span><br></pre></td></tr></table></div></figure>
+<p>这是版本问题导致的，请把docker 升级到 1.12及以上</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/10/1490408777.484703/">热更新</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2017-08-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-03</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.3k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">10分</span></span></div></header><div class="post-body"><div class="post-excerpt"><blockquote>
+<p>首先你应该有一个基于React Native开发的应用，我们把具有package.json的目录叫做你的”应用根目录”。<br>如果你还没有初始化应用，请参阅开始使用React Native。<br>所以我们也假设你已经拥有了开发React Native应用的一切环境，包括Node.js、npm、XCode、Android SDK等等。<br>如果你之前没安装过，你还必须安装Android NDK，并设置环境变量ANDROID_NDK_HOME，指向你的NDK根目录(例如/Users/tdzl2003/Downloads/android-ndk-r10e)。<br>安装</p>
+</blockquote>
+<p>在你的项目根目录下运行以下命令(不要输入开头的美元符号)：</p>
+
+        <h5 id="RN-0-29及以上"   >
+          <a href="#RN-0-29及以上" class="heading-link"><i class="fas fa-link"></i></a>RN 0.29及以上:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli</span><br><span class="line">$ npm install --save react-native-update</span><br><span class="line">$ react-native link react-native-update</span><br><span class="line">npm install -g react-native-update-cli这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+        <h5 id="RN-0-27-0-28"   >
+          <a href="#RN-0-27-0-28" class="heading-link"><i class="fas fa-link"></i></a>RN 0.27-0.28:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli rnpm</span><br><span class="line">$ npm install --save react-native-update@2.x</span><br><span class="line">$ rnpm link react-native-update</span><br><span class="line">npm install -g react-native-update-cli rnpm这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="RN-0-26及以下"   >
+          <a href="#RN-0-26及以下" class="heading-link"><i class="fas fa-link"></i></a>RN 0.26及以下:</h5>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g react-native-update-cli rnpm</span><br><span class="line">$ npm install --save --save-exact react-native-update@1.0.x</span><br><span class="line">$ rnpm link react-native-update</span><br><span class="line">npm install -g react-native-update-cli rnpm这一句在每一台电脑上仅需运行一次。</span><br></pre></td></tr></table></div></figure>
+
+<p>  ● 注意 *<br>如果访问极慢或者显示网络失败，请使用淘宝镜像： </p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist --global</span><br></pre></td></tr></table></div></figure>
+
+<p>手动安装<br>如果第一步已成功(iOS工程和安卓工程均能看到依赖),可以跳过此步骤</p>
+
+        <h4 id="iOS"   >
+          <a href="#iOS" class="heading-link"><i class="fas fa-link"></i></a>iOS</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 在XCode中的Project Navigator里,右键点击Libraries ➜ Add Files to [你的工程名]</span><br><span class="line">2. 进入node_modules ➜ react-native-update ➜ ios 并选中RCTHotUpdate.xcodeproj&#96;</span><br><span class="line">3. 在XCode中的project navigator里,选中你的工程,在 Build Phases ➜ Link Binary With Libraries 中添加 libRCTHotUpdate.a</span><br><span class="line">4. Run your project (Cmd+R)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="Android"   >
+          <a href="#Android" class="heading-link"><i class="fas fa-link"></i></a>Android</h4>
+        <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  1. 在android&#x2F;settings.gradle中添加如下代码:  include &#39;:react-native-update&#39; project(&#39;:react-native-update&#39;).projectDir &#x3D; new File(rootProject.projectDir, &#39;..&#x2F;node_modules&#x2F;react-native-update&#x2F;android&#39;)</span><br><span class="line">  2. 在android&#x2F;app&#x2F;build.gradle的 dependencies 部分增加如下代码:  compile project(&#39;:react-native-update&#39;) </span><br><span class="line">  3. 检查你的RN版本,如果是0.29及以上, 打开android&#x2F;app&#x2F;src&#x2F;main&#x2F;java&#x2F;[...]&#x2F;MainApplication.java,否则打开android&#x2F;app&#x2F;src&#x2F;main&#x2F;java&#x2F;[...]&#x2F;MainActivity.java</span><br><span class="line">      ○ 在文件开头增加 import cn.reactnative.modules.update.UpdatePackage;</span><br><span class="line">      ○ 在getPackages() 方法中增加 new UpdatePackage()(注意上一行可能要增加一个逗号)</span><br><span class="line">配置Bundle URL(iOS)</span><br><span class="line">在工程target的Build Phases-&gt;Link Binary with Libraries中加入libz.tbd、libbz2.1.0.tbd</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>在你的AppDelegate.m文件中增加如下代码：<br>// … 其它代码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;RCTHotUpdate.h&quot;</span><br><span class="line"></span><br><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">#if DEBUG</span><br><span class="line">  &#x2F;&#x2F; 原来的jsCodeLocation</span><br><span class="line">  jsCodeLocation &#x3D; [NSURL URLWithString:@&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.ios.bundle?platform&#x3D;ios&amp;dev&#x3D;true&quot;];</span><br><span class="line">#else</span><br><span class="line">  jsCodeLocation&#x3D;[RCTHotUpdate bundleURL];</span><br><span class="line">#endif</span><br><span class="line">  &#x2F;&#x2F; ... 其它代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="配置Bundle-URL-Android"   >
+          <a href="#配置Bundle-URL-Android" class="heading-link"><i class="fas fa-link"></i></a>配置Bundle URL(Android)</h5>
+      <p>0.29及以后版本：在你的MainApplication中增加如下代码：<br>// … 其它代码</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import cn.reactnative.modules.update.UpdateContext;</span><br><span class="line">public class MainApplication extends Application implements ReactApplication &#123;</span><br><span class="line"></span><br><span class="line">  private final ReactNativeHost mReactNativeHost &#x3D; new ReactNativeHost(this) &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected String getJSBundleFile() &#123;</span><br><span class="line">        return UpdateContext.getBundleUrl(MainApplication.this);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; ... 其它代码</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">0.28及以前版本：在你的MainActivity中增加如下代码：</span><br><span class="line">&#x2F;&#x2F; ... 其它代码</span><br><span class="line"></span><br><span class="line">import cn.reactnative.modules.update.UpdateContext;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends ReactActivity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected String getJSBundleFile() &#123;</span><br><span class="line">        return UpdateContext.getBundleUrl(this);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; ... 其它代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+        <h5 id="iOS的ATS例外配置"   >
+          <a href="#iOS的ATS例外配置" class="heading-link"><i class="fas fa-link"></i></a>iOS的ATS例外配置</h5>
+      <p>从iOS9开始，苹果要求以白名单的形式在Info.plist中列出外部的非https接口，以督促开发者部署https协议。在我们的服务部署https协议之前，请在Info.plist中添加如下例外（右键点击Info.plist，选择open as - source code）：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;NSAppTransportSecurity&lt;&#x2F;key&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;NSExceptionDomains&lt;&#x2F;key&gt;</span><br><span class="line">    &lt;dict&gt;</span><br><span class="line">        &lt;key&gt;reactnative.cn&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;dict&gt;</span><br><span class="line">            &lt;key&gt;NSIncludesSubdomains&lt;&#x2F;key&gt;</span><br><span class="line">            &lt;true&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;dict&gt;</span><br><span class="line">   &lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;dict&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+<p>登录与创建应用<br>在你的项目根目录下运行以下命令：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pushy login</span><br><span class="line">email: &lt;输入你的注册邮箱&gt;</span><br><span class="line">password: &lt;输入你的密码&gt;</span><br></pre></td></tr></table></div></figure>
+
+<p>这会在项目文件夹下创建一个.update文件，注意不要把这个文件上传到Git等CVS系统上。你可以在.gitignore末尾增加一行.update来忽略这个文件。<br>登录之后可以创建应用。注意iOS平台和安卓平台需要分别创建：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pushy createApp --platform ios</span><br></pre></td></tr></table></div></figure>
+<p>App Name: &lt;输入应用名字&gt;</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pushy createApp --platform android</span><br></pre></td></tr></table></div></figure>
+<p>App Name: &lt;输入应用名字&gt;<br>两次输入的名字可以相同，这没有关系。<br>如果你已经在网页端或者其它地方创建过应用，也可以直接选择应用：<br>$ pushy selectApp –platform ios</p>
+<ol>
+<li>鱼多多(ios)</li>
+<li>招财旺(ios)</li>
+</ol>
+<p>Total 2 ios apps<br>Enter appId: &lt;输入应用前面的编号&gt;<br>选择或者创建过应用后，你将可以在文件夹下看到update.json文件，其内容类似如下形式：<br>{<br>    “ios”: {<br>        “appId”: 1,<br>        “appKey”: “&lt;一串随机字符串&gt;”<br>    },<br>    “android”: {<br>        “appId”: 2,<br>        “appKey”: “&lt;一串随机字符串&gt;”<br>    }<br>}<br>你可以安全的把update.json上传到Git等CVS系统上，与你的团队共享这个文件，它不包含任何敏感信息。当然，他们在使用任何功能之前，都必须首先输入pushy login进行登录。</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2017/08/10/1490408789.503871/">Docker常用命令</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2017-08-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-03</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">742</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">6分</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h4 id="查看镜像"   >
+          <a href="#查看镜像" class="heading-link"><i class="fas fa-link"></i></a>查看镜像</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">包含 仓库名，标签，镜像ID，创建时间以及所占用的空间</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="此命令回去执行-拉取DockerHub的镜像源"   >
+          <a href="#此命令回去执行-拉取DockerHub的镜像源" class="heading-link"><i class="fas fa-link"></i></a>此命令回去执行 拉取DockerHub的镜像源</h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull &lt;名称&gt; &lt;版本&gt; （默认会pull最新版本）</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="运行镜像"   >
+          <a href="#运行镜像" class="heading-link"><i class="fas fa-link"></i></a>运行镜像</h4>
+      <p>docker run 就是运行容器的命令, -it -i:交互式操作, -t终端 进入bash –rm 是指容器退出后随之将其删除</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm ubuntu:14.04 bash</span><br><span class="line">root@9839c757a804:&#x2F;# cat &#x2F;etc&#x2F;os-release </span><br><span class="line">NAME&#x3D;&quot;Ubuntu&quot;</span><br><span class="line">VERSION&#x3D;&quot;14.04.5 LTS, Trusty Tahr&quot;</span><br><span class="line">ID&#x3D;ubuntu</span><br><span class="line">ID_LIKE&#x3D;debian</span><br><span class="line">PRETTY_NAME&#x3D;&quot;Ubuntu 14.04.5 LTS&quot;</span><br><span class="line">VERSION_ID&#x3D;&quot;14.04&quot;</span><br><span class="line">HOME_URL&#x3D;&quot;http:&#x2F;&#x2F;www.ubuntu.com&#x2F;&quot;</span><br><span class="line">SUPPORT_URL&#x3D;&quot;http:&#x2F;&#x2F;help.ubuntu.com&#x2F;&quot;</span><br><span class="line">BUG_REPORT_URL&#x3D;&quot;http:&#x2F;&#x2F;bugs.launchpad.net&#x2F;ubuntu&#x2F;&quot;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="虚悬镜像"   >
+          <a href="#虚悬镜像" class="heading-link"><i class="fas fa-link"></i></a>虚悬镜像</h4>
+      <p>有有时我们会pull下来类似于这样的镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;none&gt;   &lt;none&gt;   00285df0df87    5day ago  342 MB</span><br></pre></td></tr></table></div></figure>
+<p>此镜像其实是有标签存在的，只是随着官网的镜像维护更新后 重新pull时这个镜像被转移到了新的镜像身上，而旧镜像本身的名称被取消，所以显示none 当然  docker build 也会出现同样的现象</p>
+<p>此条命令可以显示这类镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f dangling&#x3D;true</span><br></pre></td></tr></table></div></figure>
+
+<p>我们可以用下面命令删除此类镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -q -f dangling&#x3D;true)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="中间层镜像"   >
+          <a href="#中间层镜像" class="heading-link"><i class="fas fa-link"></i></a>中间层镜像</h4>
+      <p>与虚悬镜像不同，她是其它一些镜像的依赖镜像不可删除，删除的话可能导致一些依赖丢失从而出错。相同的层只会存一遍，所以它们的存在对你来说没有什么影响</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -a </span><br></pre></td></tr></table></div></figure>
+
+<p>我现在想查看我在ubuntu:16.04 这个镜像之后pull的镜像</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker images -f since&#x3D;ubuntu:16.04</span><br><span class="line"></span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">nest_console        latest              04aeff17b50c        3 hours ago         531.4 MB</span><br><span class="line">nest_php            latest              c230b821f887        4 hours ago         504.4 MB</span><br><span class="line">centos              latest              67591570dd29        3 days ago          191.8 MB</span><br></pre></td></tr></table></div></figure>
+
+
+<p>-f 是–filter的简写。 如果想看到某个位置之前的镜像 可以将since换成 before</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f before&#x3D;ubuntu:16.04</span><br></pre></td></tr></table></div></figure>
+
+<p>当然也可以通过LABEL来进行过滤</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f label&#x3D;com.example.version&#x3D;0.1</span><br></pre></td></tr></table></div></figure>
+
+<p>我们先去创建并启动一个容器并监听本地端口8080</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name webnginx -d -p8080:80 nginx</span><br></pre></td></tr></table></div></figure>
+
+<p>通过终端方式进入 webnginx 容器</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it webnginx bash</span><br></pre></td></tr></table></div></figure>
+
+<p>使用命令修改nginx的数据内容：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&lt;h1&gt;hello fanxiao2&lt;&#x2F;h1&gt;&quot; &gt;&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br></pre></td></tr></table></div></figure>
+
+<p>我们修改了文件，于是乎也动用了容器的存储层，使用命令可以查看具体改动</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">docker diff webnginx</span><br><span class="line">C &#x2F;root</span><br><span class="line">A &#x2F;root&#x2F;.bash_history</span><br><span class="line">C &#x2F;run</span><br><span class="line">A &#x2F;run&#x2F;nginx.pid</span><br><span class="line">C &#x2F;usr</span><br><span class="line">C &#x2F;usr&#x2F;share</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</span><br><span class="line">C &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br><span class="line">C &#x2F;var</span><br><span class="line">C &#x2F;var&#x2F;cache</span><br><span class="line">C &#x2F;var&#x2F;cache&#x2F;nginx</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;client_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;fastcgi_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;proxy_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;scgi_temp</span><br><span class="line">A &#x2F;var&#x2F;cache&#x2F;nginx&#x2F;uwsgi_temp</span><br></pre></td></tr></table></div></figure></div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">人生没有如果，命运没有假设；不要尽力而为，而要全力以赴；想要不可替代，就必须与众不同。</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">23</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>FanJun</span><span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
